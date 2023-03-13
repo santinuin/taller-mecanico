@@ -1,0 +1,76 @@
+package com.besysoft.taller_mecanico.domain.entities;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import java.time.LocalTime;
+
+@Entity
+@Table(name = "mano_obra", indexes = {
+        @Index(name = "fk_mano_obra_orden_idx", columnList = "orden_trabajo_id"),
+        @Index(name = "fk_mano_obra_mecanico_idx", columnList = "mecanico_id")
+})
+public class ManoObra {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @Size(max = 255)
+    @Column(name = "detalle")
+    private String detalle;
+
+    @Column(name = "duracion_hs")
+    private LocalTime duracionHs;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "mecanico_id")
+    private Mecanico mecanico;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "orden_trabajo_id")
+    private OrdenesTrabajo ordenTrabajo;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
+    }
+
+    public LocalTime getDuracionHs() {
+        return duracionHs;
+    }
+
+    public void setDuracionHs(LocalTime duracionHs) {
+        this.duracionHs = duracionHs;
+    }
+
+    public Mecanico getMecanico() {
+        return mecanico;
+    }
+
+    public void setMecanico(Mecanico mecanico) {
+        this.mecanico = mecanico;
+    }
+
+    public OrdenesTrabajo getOrdenTrabajo() {
+        return ordenTrabajo;
+    }
+
+    public void setOrdenTrabajo(OrdenesTrabajo ordenTrabajo) {
+        this.ordenTrabajo = ordenTrabajo;
+    }
+
+}
