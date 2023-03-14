@@ -3,9 +3,7 @@ package com.besysoft.taller_mecanico.domain.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "vehiculos", indexes = {
@@ -36,10 +34,7 @@ public class Vehiculo {
     @Column(name = "patente")
     private String patente;
 
-    @ManyToMany
-    @JoinTable(name = "cliente_vehiculo",
-            joinColumns = @JoinColumn(name = "vehiculo_id"),
-            inverseJoinColumns = @JoinColumn(name = "cliente_id"))
+    @ManyToMany(mappedBy = "vehiculos", fetch = FetchType.LAZY)
     private List<Cliente> clientes;
 
     public List<Cliente> getClientes() {

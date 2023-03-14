@@ -2,18 +2,12 @@ package com.besysoft.taller_mecanico.domain.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-@Table(name = "ordenes_trabajo", indexes = {
-        @Index(name = "fk_trabajo_administrativo_idx", columnList = "administrativo_id"),
-        @Index(name = "fk_trabajo_vehiculo_idx", columnList = "vehiculo_id"),
-        @Index(name = "fk_trabajo_recepcionista_idx", columnList = "recepcionista_id")
-})
+@Table(name = "ordenes_trabajo")
 public class OrdenesTrabajo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,7 +56,7 @@ public class OrdenesTrabajo {
     @JoinColumn(name = "administrativo_id")
     private Empleado administrativo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "recepcionista_id")
     private Empleado recepcionista;
 

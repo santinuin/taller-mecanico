@@ -1,16 +1,11 @@
 package com.besysoft.taller_mecanico.domain.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "detalle_ordenes_trabajo", indexes = {
-        @Index(name = "fk_detalle_repuesto_idx", columnList = "repuesto_id"),
-        @Index(name = "fk_detalle_orden_idx", columnList = "orden_trabajo_id")
-})
+@Table(name = "detalle_ordenes_trabajo")
 public class DetalleOrdenesTrabajo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -2,16 +2,11 @@ package com.besysoft.taller_mecanico.domain.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "mano_obra", indexes = {
-        @Index(name = "fk_mano_obra_orden_idx", columnList = "orden_trabajo_id"),
-        @Index(name = "fk_mano_obra_mecanico_idx", columnList = "mecanico_id")
-})
+@Table(name = "mano_obra")
 public class ManoObra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
