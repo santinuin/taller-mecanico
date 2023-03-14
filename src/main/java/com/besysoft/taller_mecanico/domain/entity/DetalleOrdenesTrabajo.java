@@ -1,4 +1,4 @@
-package com.besysoft.taller_mecanico.domain.entities;
+package com.besysoft.taller_mecanico.domain.entity;
 
 import jakarta.persistence.*;
 
