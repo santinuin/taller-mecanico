@@ -8,8 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "clientes", indexes = {
-        @Index(name = "correo_electronico_UNIQUE", columnList = "correo_electronico", unique = true)
-})
+        @Index(name = "correo_electronico_UNIQUE", columnList = "correo_electronico", unique = true)})
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,7 +61,7 @@ public class Cliente {
     @Column(name = "telefono_linea", length = 15)
     private String telefonoLinea;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "cliente_vehiculo",
             joinColumns = @JoinColumn(name = "cliente_id"),
             inverseJoinColumns = @JoinColumn(name = "vehiculo_id"))

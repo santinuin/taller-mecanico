@@ -7,8 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "vehiculos", indexes = {
-        @Index(name = "patente_UNIQUE", columnList = "patente", unique = true)
-})
+        @Index(name = "patente_UNIQUE", columnList = "patente", unique = true)})
 public class Vehiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +33,7 @@ public class Vehiculo {
     @Column(name = "patente")
     private String patente;
 
-    @ManyToMany(mappedBy = "vehiculos", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "vehiculos", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Cliente> clientes;
 
     public List<Cliente> getClientes() {

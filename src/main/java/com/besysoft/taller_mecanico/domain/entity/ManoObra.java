@@ -26,7 +26,7 @@ public class ManoObra {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "orden_trabajo_id")
-    private OrdenesTrabajo ordenTrabajo;
+    private OrdenTrabajo ordenTrabajo;
 
     public Long getId() {
         return id;
@@ -60,11 +60,11 @@ public class ManoObra {
         this.mecanico = mecanico;
     }
 
-    public OrdenesTrabajo getOrdenTrabajo() {
+    public OrdenTrabajo getOrdenTrabajo() {
         return ordenTrabajo;
     }
 
-    public void setOrdenTrabajo(OrdenesTrabajo ordenTrabajo) {
+    public void setOrdenTrabajo(OrdenTrabajo ordenTrabajo) {
         this.ordenTrabajo = ordenTrabajo;
     }
 

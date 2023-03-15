@@ -5,20 +5,21 @@ import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- * A DTO for the {@link com.besysoft.taller_mecanico.domain.entity.Vehiculo} entity
- */
+
 public class VehiculoDto implements Serializable {
-    private final Long id;
-    private final Integer anio;
+    private Long id;
+    private Integer anio;
     @Size(max = 255)
-    private final String color;
+    private String color;
     @Size(max = 255)
-    private final String marca;
+    private String marca;
     @Size(max = 255)
-    private final String modelo;
+    private String modelo;
     @Size(max = 255)
-    private final String patente;
+    private String patente;
+
+    public VehiculoDto() {
+    }
 
     public VehiculoDto(Long id, Integer anio, String color, String marca, String modelo, String patente) {
         this.id = id;
@@ -33,24 +34,48 @@ public class VehiculoDto implements Serializable {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Integer getAnio() {
         return anio;
+    }
+
+    public void setAnio(Integer anio) {
+        this.anio = anio;
     }
 
     public String getColor() {
         return color;
     }
 
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public String getMarca() {
         return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public String getModelo() {
         return modelo;
     }
 
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
     public String getPatente() {
         return patente;
+    }
+
+    public void setPatente(String patente) {
+        this.patente = patente;
     }
 
     @Override
@@ -71,14 +96,4 @@ public class VehiculoDto implements Serializable {
         return Objects.hash(id, anio, color, marca, modelo, patente);
     }
 
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + "(" +
-                "id = " + id + ", " +
-                "anio = " + anio + ", " +
-                "color = " + color + ", " +
-                "marca = " + marca + ", " +
-                "modelo = " + modelo + ", " +
-                "patente = " + patente + ")";
-    }
 }

@@ -4,36 +4,42 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
+
 public class ClienteDto implements Serializable {
-    private final Long id;
+    private Long id;
     @Size(max = 80)
     @NotNull
-    private final String apellido;
+    private String apellido;
     @Size(max = 15)
-    private final String celular;
+    private String celular;
     @Size(max = 255)
-    private final String calle;
+    private String calle;
     @Size(max = 255)
-    private final String codigoPostal;
+    private String codigoPostal;
     @Size(max = 255)
-    private final String departamento;
+    private String departamento;
     @Size(max = 255)
-    private final String localidad;
+    private String localidad;
     @Size(max = 255)
-    private final String numero;
+    private String numero;
     @Size(max = 255)
-    private final String piso;
+    private String piso;
     @Size(max = 255)
-    private final String correoElectronico;
+    private String correoElectronico;
     @Size(max = 100)
     @NotNull
-    private final String nombres;
+    private String nombres;
     @Size(max = 15)
-    private final String telefonoLinea;
+    private String telefonoLinea;
+    private List<VehiculoDto> vehiculos;
 
-    public ClienteDto(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String correoElectronico, String nombres, String telefonoLinea) {
+    public ClienteDto() {
+    }
+
+    public ClienteDto(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String correoElectronico, String nombres, String telefonoLinea, List<VehiculoDto> vehiculos) {
         this.id = id;
         this.apellido = apellido;
         this.celular = celular;
@@ -46,54 +52,111 @@ public class ClienteDto implements Serializable {
         this.correoElectronico = correoElectronico;
         this.nombres = nombres;
         this.telefonoLinea = telefonoLinea;
+        this.vehiculos = vehiculos;
     }
 
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getApellido() {
         return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCelular() {
         return celular;
     }
 
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
     public String getCalle() {
         return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
     }
 
     public String getCodigoPostal() {
         return codigoPostal;
     }
 
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
+    }
+
     public String getDepartamento() {
         return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
     public String getLocalidad() {
         return localidad;
     }
 
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
     public String getNumero() {
         return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getPiso() {
         return piso;
     }
 
+    public void setPiso(String piso) {
+        this.piso = piso;
+    }
+
     public String getCorreoElectronico() {
         return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
     public String getNombres() {
         return nombres;
     }
 
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
     public String getTelefonoLinea() {
         return telefonoLinea;
+    }
+
+    public void setTelefonoLinea(String telefonoLinea) {
+        this.telefonoLinea = telefonoLinea;
+    }
+
+    public List<VehiculoDto> getVehiculos() {
+        return vehiculos;
+    }
+
+    public void setVehiculos(List<VehiculoDto> vehiculos) {
+        this.vehiculos = vehiculos;
     }
 
     @Override
@@ -112,28 +175,12 @@ public class ClienteDto implements Serializable {
                 Objects.equals(this.piso, entity.piso) &&
                 Objects.equals(this.correoElectronico, entity.correoElectronico) &&
                 Objects.equals(this.nombres, entity.nombres) &&
-                Objects.equals(this.telefonoLinea, entity.telefonoLinea);
+                Objects.equals(this.telefonoLinea, entity.telefonoLinea) &&
+                Objects.equals(this.vehiculos, entity.vehiculos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, apellido, celular, calle, codigoPostal, departamento, localidad, numero, piso, correoElectronico, nombres, telefonoLinea);
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + "(" +
-                "id = " + id + ", " +
-                "apellido = " + apellido + ", " +
-                "celular = " + celular + ", " +
-                "calle = " + calle + ", " +
-                "codigoPostal = " + codigoPostal + ", " +
-                "departamento = " + departamento + ", " +
-                "localidad = " + localidad + ", " +
-                "numero = " + numero + ", " +
-                "piso = " + piso + ", " +
-                "correoElectronico = " + correoElectronico + ", " +
-                "nombres = " + nombres + ", " +
-                "telefonoLinea = " + telefonoLinea + ")";
+        return Objects.hash(id, apellido, celular, calle, codigoPostal, departamento, localidad, numero, piso, correoElectronico, nombres, telefonoLinea, vehiculos);
     }
 }

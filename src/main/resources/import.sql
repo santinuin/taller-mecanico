@@ -1,0 +1,11 @@
+/* Populate table clientes */
+
+INSERT INTO `taller_mecanico`.`clientes` (`id`, `apellido`, `calle`, `celular`, `codigo_postal`, `correo_electronico`, `departamento`, `localidad`, `nombres`, `numero`, `piso`, `telefono_linea`) VALUES ('1', 'Perez', 'Calle', '111111111', '1111', 'juanperez@prueba.com', 'Prueba', 'Prueba', 'Juan', '1', '1', '1111111');
+
+/* Populate table vehiculos */
+
+INSERT INTO `taller_mecanico`.`vehiculos` (`id`, `anio`, `color`, `marca`, `modelo`, `patente`) VALUES ('1', '1111', 'Rojo', 'Fiat', 'Uno', 'AAA111');
+
+/* Populate table empleados */
+
+INSERT INTO `taller_mecanico`.`empleados` (`id`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `localidad`, `nombres`, `numero`, `piso`, `tipo_empleado`) VALUES ('1', 'Nuñez', 'Calasanz', '155129748', '5107', 'Colon', 'Mendiolaza', 'Santiago', '2770', '1', 'RECEPCIONISTA');

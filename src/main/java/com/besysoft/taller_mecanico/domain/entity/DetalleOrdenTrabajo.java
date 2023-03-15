@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "detalle_ordenes_trabajo")
-public class DetalleOrdenesTrabajo {
+public class DetalleOrdenTrabajo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -20,7 +20,7 @@ public class DetalleOrdenesTrabajo {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "orden_trabajo_id")
-    private OrdenesTrabajo ordenTrabajo;
+    private OrdenTrabajo ordenTrabajo;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "repuesto_id")
@@ -50,11 +50,11 @@ public class DetalleOrdenesTrabajo {
         this.valorTotal = valorTotal;
     }
 
-    public OrdenesTrabajo getOrdenTrabajo() {
+    public OrdenTrabajo getOrdenTrabajo() {
         return ordenTrabajo;
     }
 
-    public void setOrdenTrabajo(OrdenesTrabajo ordenTrabajo) {
+    public void setOrdenTrabajo(OrdenTrabajo ordenTrabajo) {
         this.ordenTrabajo = ordenTrabajo;
     }
 
