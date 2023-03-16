@@ -68,7 +68,12 @@ public class RecepcionServiceImpl implements RecepcionService {
 
     @Override
     @Transactional
-    public void generarOrdenDeTrabajo(Long empleadoId, String nivelCombustible, Long kilometraje, String detalleFalla, String patenteVehiculo, Long mecanicoId) throws InvalidRolException {
+    public void generarOrdenDeTrabajo(Long empleadoId,
+                                      String nivelCombustible,
+                                      Long kilometraje,
+                                      String detalleFalla,
+                                      String patenteVehiculo,
+                                      Long mecanicoId) throws InvalidRolException {
 
         Empleado empleado = this.empleadoRepository.findById(empleadoId).orElseThrow();
 
