@@ -1,4 +1,4 @@
-package com.besysoft.taller_mecanico.business.mapper;
+package com.besysoft.taller_mecanico.business.mapper.implementations;
 
 import com.besysoft.taller_mecanico.business.dto.VehiculoDto;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.VehiculoMapper;

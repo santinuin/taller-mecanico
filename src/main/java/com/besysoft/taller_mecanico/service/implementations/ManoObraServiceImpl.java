@@ -5,6 +5,8 @@ import com.besysoft.taller_mecanico.repository.ManoObraRepository;
 import com.besysoft.taller_mecanico.service.interfaces.ManoObraService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ManoObraServiceImpl implements ManoObraService {
 
@@ -12,6 +14,11 @@ public class ManoObraServiceImpl implements ManoObraService {
 
     public ManoObraServiceImpl(ManoObraRepository manoObraRepository) {
         this.manoObraRepository = manoObraRepository;
+    }
+
+    @Override
+    public List<ManoObra> findAll() {
+        return manoObraRepository.findAll();
     }
 
     @Override

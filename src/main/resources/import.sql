@@ -6,10 +6,15 @@ INSERT INTO `taller_mecanico`.`clientes` (`id`, `apellido`, `calle`, `celular`, 
 
 INSERT INTO `taller_mecanico`.`vehiculos` (`id`, `anio`, `color`, `marca`, `modelo`, `patente`) VALUES ('1', '1111', 'Rojo', 'Fiat', 'Uno', 'AAA111');
 
+
+/*Merge in table cliente_vehiculo*/
+
+INSERT INTO `taller_mecanico`.`cliente_vehiculo` (`cliente_id`, `vehiculo_id`) VALUES ('1', '1');
+
 /* Populate table empleados */
 
 INSERT INTO `taller_mecanico`.`empleados` (`id`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `localidad`, `nombres`, `numero`, `piso`, `tipo_empleado`) VALUES ('1', 'Nuñez', 'Calasanz', '155129748', '5107', 'Colon', 'Mendiolaza', 'Santiago', '2770', '1', 'RECEPCIONISTA');
 
 /* Populate table mecanicos */
 
-INSERT INTO `taller_mecanico`.`mecanicos` (`id`, `activo`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `especialidad`, `localidad`, `nombres`, `numero`, `piso`) VALUES ('1', 'a', 'Gomez', 'Publica', '156894782', '5000', 'Cordoba', 'Generalista', 'Cordoba', 'Alberto', '35', '1');
+INSERT INTO `taller_mecanico`.`mecanicos` (`id`, `activo`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `especialidad`, `localidad`, `nombres`, `numero`, `piso`) VALUES ('1', 'Si', 'Gomez', 'Publica', '156894782', '5000', 'Cordoba', 'Generalista', 'Cordoba', 'Alberto', '35', '1');

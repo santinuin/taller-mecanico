@@ -7,7 +7,7 @@ import com.besysoft.taller_mecanico.business.mapper.interfaces.OrdenTrabajoMappe
 import com.besysoft.taller_mecanico.domain.entity.Cliente;
 import com.besysoft.taller_mecanico.domain.entity.OrdenTrabajo;
 import com.besysoft.taller_mecanico.exceptions.InvalidRolException;
-import com.besysoft.taller_mecanico.service.interfaces.EmpleadoService;
+import com.besysoft.taller_mecanico.service.interfaces.RecepcionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/empleado")
-public class EmpleadoController {
+@RequestMapping("/recepcion")
+public class RecepcionController {
 
-        private final EmpleadoService service;
+        private final RecepcionService service;
         private final ClienteMapper clienteMapper;
         private final OrdenTrabajoMapper ordenTrabajoMapper;
 
-    public EmpleadoController(EmpleadoService service, ClienteMapper clienteMapper, OrdenTrabajoMapper ordenTrabajoMapper) {
+    public RecepcionController(RecepcionService service, ClienteMapper clienteMapper, OrdenTrabajoMapper ordenTrabajoMapper) {
         this.service = service;
         this.clienteMapper = clienteMapper;
         this.ordenTrabajoMapper = ordenTrabajoMapper;

@@ -4,7 +4,7 @@ import com.besysoft.taller_mecanico.business.mapper.interfaces.ClienteMapper;
 import com.besysoft.taller_mecanico.domain.entity.*;
 import com.besysoft.taller_mecanico.exceptions.InvalidRolException;
 import com.besysoft.taller_mecanico.repository.*;
-import com.besysoft.taller_mecanico.service.interfaces.EmpleadoService;
+import com.besysoft.taller_mecanico.service.interfaces.RecepcionService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +15,7 @@ import static com.besysoft.taller_mecanico.domain.enumerations.EstadoOrdenEnum.C
 import static com.besysoft.taller_mecanico.domain.enumerations.TipoEmpleadoEnum.RECEPCIONISTA;
 
 @Service
-public class EmpleadoServiceImpl implements EmpleadoService {
+public class RecepcionServiceImpl implements RecepcionService {
 
     private final EmpleadoRepository empleadoRepository;
     private final ClienteRepository clienteRepository;
@@ -24,7 +24,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     private final MecanicoRepository mecanicoRepository;
     private final ManoObraRepository manoObraRepository;
 
-    public EmpleadoServiceImpl(EmpleadoRepository empleadoRepository, ClienteRepository clienteRepository, VehiculoRepository vehiculoRepository, ClienteMapper clienteMapper, OrdenTrabajoRepository ordenTrabajoRepository, MecanicoRepository mecanicoRepository, ManoObraRepository manoObraRepository) {
+    public RecepcionServiceImpl(EmpleadoRepository empleadoRepository, ClienteRepository clienteRepository, VehiculoRepository vehiculoRepository, ClienteMapper clienteMapper, OrdenTrabajoRepository ordenTrabajoRepository, MecanicoRepository mecanicoRepository, ManoObraRepository manoObraRepository) {
         this.empleadoRepository = empleadoRepository;
         this.clienteRepository = clienteRepository;
         this.vehiculoRepository = vehiculoRepository;
