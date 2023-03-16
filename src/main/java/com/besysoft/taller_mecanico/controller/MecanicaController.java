@@ -24,7 +24,7 @@ public class MecanicaController {
     }
 
     @GetMapping
-    @RequestMapping("/{mecanicoId}/mano-obra")
+    @RequestMapping("/{mecanicoId}/asignaciones")
     public ResponseEntity<?> listarManosDeObraAsignadas(@PathVariable Long mecanicoId) {
 
         List<ManoObraDto> manoObraDtoList = this.mecanicaService.listarManosDeObraAsignadas(mecanicoId)
@@ -36,13 +36,27 @@ public class MecanicaController {
     }
 
     @PutMapping
-    @RequestMapping("/{manoObraId}/generar")
-    public ResponseEntity<?> completarManoObra(@PathVariable Long manoObraId,
-                                               @RequestBody ManoObraDto manoObraDto){
+    @RequestMapping("/{manoObraId}/iniciar")
+    public ResponseEntity<?> iniciarReparacion(@PathVariable Long manoObraId){
 
         Map<String, Object> response = new HashMap<>();
 
-        this.mecanicaService.completarManoObra(manoObraId, manoObraDto.getDetalle(), manoObraDto.getDuracionHs());
+        this.mecanicaService.iniciarReparacion(manoObraId);
+
+        response.put("succes", Boolean.TRUE);
+        response.put("mensaje", "Mano de obra iniciada");
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PutMapping
+    @RequestMapping("/{manoObraId}/finalizar")
+    public ResponseEntity<?> finalizarReparacion(@PathVariable Long manoObraId,
+                                                 @RequestBody ManoObraDto manoObraDto) {
+
+        Map<String, Object> response = new HashMap<>();
+
+        this.mecanicaService.finalizarReparacion(manoObraId, manoObraDto.getDetalle(), manoObraDto.getDuracionHs());
 
         response.put("succes", Boolean.TRUE);
         response.put("mensaje", "Mano de obra completada con éxito");
