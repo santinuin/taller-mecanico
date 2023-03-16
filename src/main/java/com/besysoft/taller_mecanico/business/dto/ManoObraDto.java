@@ -1,5 +1,6 @@
 package com.besysoft.taller_mecanico.business.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ public class ManoObraDto implements Serializable {
     private String detalle;
     private LocalTime duracionHs;
     private MecanicoDto mecanico;
+    @JsonIgnoreProperties(value = "mecanicoId")
     private OrdenTrabajoDto ordenTrabajo;
 
     public ManoObraDto() {

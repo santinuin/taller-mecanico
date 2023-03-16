@@ -17,4 +17,4 @@ INSERT INTO `taller_mecanico`.`empleados` (`id`, `apellido`, `calle`, `celular`,
 
 /* Populate table mecanicos */
 
-INSERT INTO `taller_mecanico`.`mecanicos` (`id`, `activo`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `especialidad`, `localidad`, `nombres`, `numero`, `piso`) VALUES ('1', 'Si', 'Gomez', 'Publica', '156894782', '5000', 'Cordoba', 'Generalista', 'Cordoba', 'Alberto', '35', '1');
+INSERT INTO `taller_mecanico`.`mecanicos` (`id`, `activo`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `especialidad`, `localidad`, `nombres`, `numero`, `piso`) VALUES ('1', 'A', 'Gomez', 'Publica', '156894782', '5000', 'Cordoba', 'Generalista', 'Cordoba', 'Alberto', '35', '1');
