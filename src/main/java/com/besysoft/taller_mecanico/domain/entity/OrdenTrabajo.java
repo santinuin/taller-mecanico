@@ -1,5 +1,6 @@
 package com.besysoft.taller_mecanico.domain.entity;
 
+import com.besysoft.taller_mecanico.domain.enumerations.EstadoOrdenEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
@@ -21,9 +22,9 @@ public class OrdenTrabajo {
     @Column(name = "detalle_falla")
     private String detalleFalla;
 
-    @Size(max = 255)
     @Column(name = "estado")
-    private String estado;
+    @Enumerated(EnumType.STRING)
+    private EstadoOrdenEnum estado;
 
     @Column(name = "fecha_fin_reparacion")
     private Instant fechaFinReparacion;
@@ -88,11 +89,11 @@ public class OrdenTrabajo {
         this.detalleFalla = detalleFalla;
     }
 
-    public String getEstado() {
+    public EstadoOrdenEnum getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(EstadoOrdenEnum estado) {
         this.estado = estado;
     }
 

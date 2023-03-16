@@ -1,5 +1,6 @@
 package com.besysoft.taller_mecanico.domain.entity;
 
+import com.besysoft.taller_mecanico.domain.enumerations.TipoEmpleadoEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
@@ -47,9 +48,9 @@ public class Empleado {
     @Column(name = "nombres")
     private String nombres;
 
-    @Size(max = 255)
     @Column(name = "tipo_empleado")
-    private String tipoEmpleado;
+    @Enumerated(EnumType.STRING)
+    private TipoEmpleadoEnum tipoEmpleado;
 
     public Long getId() {
         return id;
@@ -131,11 +132,11 @@ public class Empleado {
         this.nombres = nombres;
     }
 
-    public String getTipoEmpleado() {
+    public TipoEmpleadoEnum getTipoEmpleado() {
         return tipoEmpleado;
     }
 
-    public void setTipoEmpleado(String tipoEmpleado) {
+    public void setTipoEmpleado(TipoEmpleadoEnum tipoEmpleado) {
         this.tipoEmpleado = tipoEmpleado;
     }
 

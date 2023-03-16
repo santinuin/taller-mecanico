@@ -1,7 +1,7 @@
 package com.besysoft.taller_mecanico.controller;
 
 import com.besysoft.taller_mecanico.business.dto.VehiculoDto;
-import com.besysoft.taller_mecanico.business.mapper.VehiculoMapper;
+import com.besysoft.taller_mecanico.business.mapper.interfaces.VehiculoMapper;
 import com.besysoft.taller_mecanico.service.interfaces.VehiculoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

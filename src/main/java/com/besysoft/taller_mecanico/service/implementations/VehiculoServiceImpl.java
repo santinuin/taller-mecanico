@@ -1,6 +1,6 @@
 package com.besysoft.taller_mecanico.service.implementations;
 
-import com.besysoft.taller_mecanico.business.mapper.VehiculoMapper;
+import com.besysoft.taller_mecanico.business.mapper.interfaces.VehiculoMapper;
 import com.besysoft.taller_mecanico.domain.entity.Vehiculo;
 import com.besysoft.taller_mecanico.repository.VehiculoRepository;
 import com.besysoft.taller_mecanico.service.interfaces.VehiculoService;

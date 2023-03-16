@@ -9,3 +9,7 @@ INSERT INTO `taller_mecanico`.`vehiculos` (`id`, `anio`, `color`, `marca`, `mode
 /* Populate table empleados */
 
 INSERT INTO `taller_mecanico`.`empleados` (`id`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `localidad`, `nombres`, `numero`, `piso`, `tipo_empleado`) VALUES ('1', 'Nuñez', 'Calasanz', '155129748', '5107', 'Colon', 'Mendiolaza', 'Santiago', '2770', '1', 'RECEPCIONISTA');
+
+/* Populate table mecanicos */
+
+INSERT INTO `taller_mecanico`.`mecanicos` (`id`, `activo`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `especialidad`, `localidad`, `nombres`, `numero`, `piso`) VALUES ('1', 'a', 'Gomez', 'Publica', '156894782', '5000', 'Cordoba', 'Generalista', 'Cordoba', 'Alberto', '35', '1');

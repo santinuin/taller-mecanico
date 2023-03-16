@@ -7,4 +7,6 @@ public interface EmpleadoService {
 
     void recibirClienteYVehiculo(Long empleadoId, Cliente cliente) throws InvalidRolException;
 
+    void generarOrdenDeTrabajo(Long empleadoId, String nivelCombustible, Long kilometraje, String detalleFalla, String patenteVehiculo, Long mecanicoId) throws InvalidRolException;
+
 }
