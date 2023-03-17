@@ -6,6 +6,7 @@ import com.besysoft.taller_mecanico.service.interfaces.OrdenTrabajoService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrdenTrabajoServiceImpl implements OrdenTrabajoService {
@@ -15,6 +16,11 @@ public class OrdenTrabajoServiceImpl implements OrdenTrabajoService {
 
     public OrdenTrabajoServiceImpl(OrdenTrabajoRepository ordenTrabajoRepository) {
         this.ordenTrabajoRepository = ordenTrabajoRepository;
+    }
+
+    @Override
+    public Optional<OrdenTrabajo> findById(Long id) {
+        return this.ordenTrabajoRepository.findById(id);
     }
 
     @Override

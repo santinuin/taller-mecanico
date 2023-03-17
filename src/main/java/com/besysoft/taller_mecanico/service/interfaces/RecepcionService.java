@@ -9,4 +9,5 @@ public interface RecepcionService {
 
     void generarOrdenDeTrabajo(Long empleadoId, String nivelCombustible, Long kilometraje, String detalleFalla, String patenteVehiculo, Long mecanicoId) throws InvalidRolException;
 
+    void entregarVehiculo(Long empleadoId, Long ordenTrabajoId) throws InvalidRolException;
 }

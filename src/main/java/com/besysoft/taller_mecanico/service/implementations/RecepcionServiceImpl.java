@@ -2,6 +2,7 @@ package com.besysoft.taller_mecanico.service.implementations;
 
 import com.besysoft.taller_mecanico.business.mapper.interfaces.ClienteMapper;
 import com.besysoft.taller_mecanico.domain.entity.*;
+import com.besysoft.taller_mecanico.domain.enumerations.EstadoOrdenEnum;
 import com.besysoft.taller_mecanico.exceptions.InvalidRolException;
 import com.besysoft.taller_mecanico.repository.*;
 import com.besysoft.taller_mecanico.service.interfaces.RecepcionService;
@@ -98,6 +99,22 @@ public class RecepcionServiceImpl implements RecepcionService {
         manoObra.setMecanico(mecanicoRepository.findById(mecanicoId).orElse(null));
 
         this.manoObraRepository.save(manoObra);
+    }
+
+    @Override
+    public void entregarVehiculo(Long empleadoId, Long ordenTrabajoId) throws InvalidRolException {
+
+        Empleado empleado = this.empleadoRepository.findById(empleadoId).orElseThrow();
+
+        if (!Objects.equals(empleado.getTipoEmpleado(), RECEPCIONISTA)) {
+            throw new InvalidRolException("Error: debe ser recepcionista para realizar esta acción");
+        }
+
+        OrdenTrabajo ordenTrabajo = this.ordenTrabajoRepository.findById(ordenTrabajoId).orElseThrow();
+
+        ordenTrabajo.setEstado(EstadoOrdenEnum.CERRADA);
+
+        this.ordenTrabajoRepository.save(ordenTrabajo);
     }
 
 }

@@ -19,12 +19,12 @@ import java.util.Map;
 @RequestMapping("/recepcion")
 public class RecepcionController {
 
-        private final RecepcionService service;
+        private final RecepcionService recepcionService;
         private final ClienteMapper clienteMapper;
         private final OrdenTrabajoMapper ordenTrabajoMapper;
 
-    public RecepcionController(RecepcionService service, ClienteMapper clienteMapper, OrdenTrabajoMapper ordenTrabajoMapper) {
-        this.service = service;
+    public RecepcionController(RecepcionService recepcionService, ClienteMapper clienteMapper, OrdenTrabajoMapper ordenTrabajoMapper) {
+        this.recepcionService = recepcionService;
         this.clienteMapper = clienteMapper;
         this.ordenTrabajoMapper = ordenTrabajoMapper;
     }
@@ -38,12 +38,12 @@ public class RecepcionController {
         Cliente cliente = this.clienteMapper.toEntity(clienteDto);
 
         try {
-            service.recibirClienteYVehiculo(empleadoId, cliente);
+            recepcionService.recibirClienteYVehiculo(empleadoId, cliente);
         } catch (InvalidRolException e) {
             response.put("mensaje", "Error al recibir vehiculo y cliente");
             response.put("error", e.getMessage());
 
-            return new ResponseEntity<>(response, HttpStatus.CREATED);
+            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
         }
 
         response.put("succes", Boolean.TRUE);
@@ -61,7 +61,7 @@ public class RecepcionController {
         OrdenTrabajo ordenTrabajo = this.ordenTrabajoMapper.toEntity(ordenTrabajoDto);
 
         try {
-            service.generarOrdenDeTrabajo(empleadoId,
+            this.recepcionService.generarOrdenDeTrabajo(empleadoId,
                     ordenTrabajo.getNivelCombustible(),
                     ordenTrabajo.getKilometraje(),
                     ordenTrabajo.getDetalleFalla(),
@@ -72,7 +72,7 @@ public class RecepcionController {
             response.put("mensaje", "Error al generar orden de trabajo");
             response.put("error", e.getMessage());
 
-            return new ResponseEntity<>(response, HttpStatus.CREATED);
+            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
         }
 
         response.put("succes", Boolean.TRUE);
@@ -80,5 +80,27 @@ public class RecepcionController {
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
 
+    }
+
+    @PutMapping("/{empleadoId}/entregar/{ordenTrabajoId}")
+    public ResponseEntity<?> entregarVehiculo(@PathVariable Long empleadoId,
+                                 @PathVariable Long ordenTrabajoId){
+
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+            this.recepcionService.entregarVehiculo(empleadoId, ordenTrabajoId);
+        } catch (InvalidRolException e) {
+            response.put("mensaje", "Error al generar orden de trabajo");
+            response.put("error", e.getMessage());
+
+            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+        }
+
+
+        response.put("succes", Boolean.TRUE);
+        response.put("mensaje", "Entrega de vehiculo exitosa");
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
