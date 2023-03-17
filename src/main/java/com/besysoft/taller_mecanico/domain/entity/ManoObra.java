@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 import java.time.Duration;
-import java.time.LocalTime;
 
 @Entity
 @Table(name = "mano_obra")

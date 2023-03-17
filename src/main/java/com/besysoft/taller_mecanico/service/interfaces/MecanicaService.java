@@ -3,8 +3,6 @@ package com.besysoft.taller_mecanico.service.interfaces;
 import com.besysoft.taller_mecanico.domain.entity.ManoObra;
 import com.besysoft.taller_mecanico.domain.entity.Repuesto;
 
-import java.time.Duration;
-import java.time.LocalTime;
 import java.util.List;
 
 public interface MecanicaService {
