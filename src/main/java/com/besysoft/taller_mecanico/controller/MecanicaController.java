@@ -78,7 +78,7 @@ public class MecanicaController {
 
         Repuesto repuesto = this.repuestoMapper.toEntity(repuestoDto);
 
-        this.mecanicaService.cargarRepuestos(manoObraId, repuesto);
+        this.mecanicaService.cargarRepuestos(manoObraId, repuesto, repuestoDto.getCantidad());
 
         response.put("succes", Boolean.TRUE);
         response.put("mensaje", "Repuesto cargado con éxito");

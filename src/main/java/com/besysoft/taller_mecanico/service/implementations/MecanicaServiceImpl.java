@@ -12,7 +12,6 @@ import com.besysoft.taller_mecanico.service.interfaces.MecanicaService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -61,15 +60,18 @@ public class MecanicaServiceImpl implements MecanicaService {
     }
 
     @Override
-    public void cargarRepuestos(Long manoObraId, Repuesto repuesto) {
+    public void cargarRepuestos(Long manoObraId, Repuesto repuesto, Integer cantidad) {
 
         DetalleOrdenTrabajo detalleOrdenTrabajo = new DetalleOrdenTrabajo();
-        ManoObra manoObra = this.manoObraRepository.findById(manoObraId).orElseThrow();
         OrdenTrabajo ordenTrabajo = this.manoObraRepository.findById(manoObraId).get().getOrdenTrabajo();
-        repuesto = new Repuesto();
 
         detalleOrdenTrabajo.setOrdenTrabajo(ordenTrabajo);
         detalleOrdenTrabajo.setRepuesto(repuesto);
+        detalleOrdenTrabajo.setCantidad(cantidad);
+
+        BigDecimal valor_total = repuesto.getValor().multiply(BigDecimal.valueOf(cantidad));
+        detalleOrdenTrabajo.setValorTotal(valor_total);
+
 
         this.detalleOrdenTrabajoRepository.save(detalleOrdenTrabajo);
 

@@ -14,7 +14,7 @@ public interface MecanicaService {
 
     void finalizarReparacion(Long manoObraId, String detalle, LocalTime duracion_hs);
 
-    void cargarRepuestos(Long manoObraId, Repuesto repuestos);
+    void cargarRepuestos(Long manoObraId, Repuesto repuestos, Integer cantidad);
 
     void ordenParaFacturar(Long manoObraId);
 

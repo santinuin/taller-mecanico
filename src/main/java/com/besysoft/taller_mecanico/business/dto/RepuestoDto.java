@@ -15,16 +15,18 @@ public class RepuestoDto implements Serializable {
     @Size(max = 255)
     private String respuesto;
     private BigDecimal valor;
+    private Integer cantidad;
 
     public RepuestoDto() {
     }
 
-    public RepuestoDto(Long id, String marca, String modelo, String respuesto, BigDecimal valor) {
+    public RepuestoDto(Long id, String marca, String modelo, String respuesto, BigDecimal valor, Integer cantidad) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.respuesto = respuesto;
         this.valor = valor;
+        this.cantidad = cantidad;
     }
 
     public Long getId() {
@@ -65,6 +67,14 @@ public class RepuestoDto implements Serializable {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
     }
 
     @Override
