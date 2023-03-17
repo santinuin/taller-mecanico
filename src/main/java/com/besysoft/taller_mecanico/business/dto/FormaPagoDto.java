@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class FormaPagoDto implements Serializable {
@@ -16,7 +17,7 @@ public class FormaPagoDto implements Serializable {
     @NotBlank
     private Long id;
     private Integer cantidadCuotas;
-    private Instant fechaPago;
+    private LocalDateTime fechaPago;
     @Size(max = 255)
     private String formaPago;
     private BigDecimal importeTotal;
@@ -25,7 +26,7 @@ public class FormaPagoDto implements Serializable {
     public FormaPagoDto() {
     }
 
-    public FormaPagoDto(Long id, Integer cantidadCuotas, Instant fechaPago, String formaPago, BigDecimal importeTotal, String tipoTarjeta) {
+    public FormaPagoDto(Long id, Integer cantidadCuotas, LocalDateTime fechaPago, String formaPago, BigDecimal importeTotal, String tipoTarjeta) {
         this.id = id;
         this.cantidadCuotas = cantidadCuotas;
         this.fechaPago = fechaPago;
@@ -50,11 +51,11 @@ public class FormaPagoDto implements Serializable {
         this.cantidadCuotas = cantidadCuotas;
     }
 
-    public Instant getFechaPago() {
+    public LocalDateTime getFechaPago() {
         return fechaPago;
     }
 
-    public void setFechaPago(Instant fechaPago) {
+    public void setFechaPago(LocalDateTime fechaPago) {
         this.fechaPago = fechaPago;
     }
 

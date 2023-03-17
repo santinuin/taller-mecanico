@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ordenes_trabajo")
@@ -27,13 +28,13 @@ public class OrdenTrabajo {
     private EstadoOrdenEnum estado;
 
     @Column(name = "fecha_fin_reparacion")
-    private Instant fechaFinReparacion;
+    private LocalDateTime fechaFinReparacion;
 
     @Column(name = "fecha_ingreso")
-    private Instant fechaIngreso;
+    private LocalDateTime fechaIngreso;
 
     @Column(name = "fecha_pago")
-    private Instant fechaPago;
+    private LocalDateTime fechaPago;
 
     @Size(max = 255)
     @Column(name = "forma_pago")
@@ -97,27 +98,27 @@ public class OrdenTrabajo {
         this.estado = estado;
     }
 
-    public Instant getFechaFinReparacion() {
+    public LocalDateTime getFechaFinReparacion() {
         return fechaFinReparacion;
     }
 
-    public void setFechaFinReparacion(Instant fechaFinReparacion) {
+    public void setFechaFinReparacion(LocalDateTime fechaFinReparacion) {
         this.fechaFinReparacion = fechaFinReparacion;
     }
 
-    public Instant getFechaIngreso() {
+    public LocalDateTime getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Instant fechaIngreso) {
+    public void setFechaIngreso(LocalDateTime fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Instant getFechaPago() {
+    public LocalDateTime getFechaPago() {
         return fechaPago;
     }
 
-    public void setFechaPago(Instant fechaPago) {
+    public void setFechaPago(LocalDateTime fechaPago) {
         this.fechaPago = fechaPago;
     }
 

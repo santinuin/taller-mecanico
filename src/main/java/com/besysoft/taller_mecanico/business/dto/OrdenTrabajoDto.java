@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class OrdenTrabajoDto implements Serializable {
@@ -14,9 +15,9 @@ public class OrdenTrabajoDto implements Serializable {
     @Size(max = 255)
     private String detalleFalla;
     private EstadoOrdenEnum estado;
-    private Instant fechaFinReparacion;
-    private Instant fechaIngreso;
-    private Instant fechaPago;
+    private LocalDateTime fechaFinReparacion;
+    private LocalDateTime fechaIngreso;
+    private LocalDateTime fechaPago;
     @Size(max = 255)
     private String formaPago;
     private BigDecimal importeTotal;
@@ -31,7 +32,7 @@ public class OrdenTrabajoDto implements Serializable {
     public OrdenTrabajoDto() {
     }
 
-    public OrdenTrabajoDto(Long id, Integer cantidadCuotas, String detalleFalla, EstadoOrdenEnum estado, Instant fechaFinReparacion, Instant fechaIngreso, Instant fechaPago, String formaPago, BigDecimal importeTotal, Long kilometraje, String nivelCombustible, String tipoTarjeta, VehiculoDto vehiculo, Long mecanicoId) {
+    public OrdenTrabajoDto(Long id, Integer cantidadCuotas, String detalleFalla, EstadoOrdenEnum estado, LocalDateTime fechaFinReparacion, LocalDateTime fechaIngreso, LocalDateTime fechaPago, String formaPago, BigDecimal importeTotal, Long kilometraje, String nivelCombustible, String tipoTarjeta, VehiculoDto vehiculo, Long mecanicoId) {
         this.id = id;
         this.cantidadCuotas = cantidadCuotas;
         this.detalleFalla = detalleFalla;
@@ -80,27 +81,27 @@ public class OrdenTrabajoDto implements Serializable {
         this.estado = estado;
     }
 
-    public Instant getFechaFinReparacion() {
+    public LocalDateTime getFechaFinReparacion() {
         return fechaFinReparacion;
     }
 
-    public void setFechaFinReparacion(Instant fechaFinReparacion) {
+    public void setFechaFinReparacion(LocalDateTime fechaFinReparacion) {
         this.fechaFinReparacion = fechaFinReparacion;
     }
 
-    public Instant getFechaIngreso() {
+    public LocalDateTime getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Instant fechaIngreso) {
+    public void setFechaIngreso(LocalDateTime fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Instant getFechaPago() {
+    public LocalDateTime getFechaPago() {
         return fechaPago;
     }
 
-    public void setFechaPago(Instant fechaPago) {
+    public void setFechaPago(LocalDateTime fechaPago) {
         this.fechaPago = fechaPago;
     }
 

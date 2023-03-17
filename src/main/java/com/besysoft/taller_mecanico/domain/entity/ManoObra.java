@@ -3,6 +3,7 @@ package com.besysoft.taller_mecanico.domain.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
+import java.time.Duration;
 import java.time.LocalTime;
 
 @Entity
@@ -18,7 +19,7 @@ public class ManoObra {
     private String detalle;
 
     @Column(name = "duracion_hs")
-    private LocalTime duracionHs;
+    private Duration duracionHs;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "mecanico_id")
@@ -44,11 +45,11 @@ public class ManoObra {
         this.detalle = detalle;
     }
 
-    public LocalTime getDuracionHs() {
+    public Duration getDuracionHs() {
         return duracionHs;
     }
 
-    public void setDuracionHs(LocalTime duracionHs) {
+    public void setDuracionHs(Duration duracionHs) {
         this.duracionHs = duracionHs;
     }
 

@@ -12,6 +12,9 @@ import com.besysoft.taller_mecanico.service.interfaces.MecanicaService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,12 +51,15 @@ public class MecanicaServiceImpl implements MecanicaService {
     }
 
     @Override
-    public void finalizarReparacion(Long manoObraId, String detalle, LocalTime duracion_hs) {
+    public void finalizarReparacion(Long manoObraId, String detalle, Long duracion_hs) {
 
         ManoObra manoObraAsignada = this.manoObraRepository.findById(manoObraId).orElseThrow();
+        OrdenTrabajo ordenTrabajo = this.ordenTrabajoRepository.findById(manoObraAsignada.getOrdenTrabajo().getId()).orElseThrow();
+
+        ordenTrabajo.setFechaFinReparacion(LocalDateTime.now());
 
         manoObraAsignada.setDetalle(detalle);
-        manoObraAsignada.setDuracionHs(duracion_hs);
+        manoObraAsignada.setDuracionHs(Duration.ofHours(duracion_hs));
 
         manoObraRepository.save(manoObraAsignada);
 

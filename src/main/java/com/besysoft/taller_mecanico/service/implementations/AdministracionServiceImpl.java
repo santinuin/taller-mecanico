@@ -10,6 +10,8 @@ import com.besysoft.taller_mecanico.service.interfaces.AdministracionService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import static com.besysoft.taller_mecanico.domain.enumerations.TipoEmpleadoEnum.ADMINISTRATIVO;
@@ -35,6 +37,7 @@ public class AdministracionServiceImpl implements AdministracionService {
             throw new InvalidRolException("Error: debe ser administrativo para realizar esta acción");
         }
 
+        ordenTrabajo.setFechaPago(LocalDateTime.now());
         ordenTrabajo.setEstado(EstadoOrdenEnum.FACTURADA);
         ordenTrabajo.setAdministrativo(this.empleadoRepository.findById(empleadoId).orElseThrow());
 

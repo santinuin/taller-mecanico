@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ public class ManoObraDto implements Serializable {
     private Long id;
     @Size(max = 255)
     private String detalle;
-    private LocalTime duracionHs;
+    private Long duracionHs;
     private MecanicoDto mecanico;
     @JsonIgnoreProperties(value = "mecanicoId")
     private OrdenTrabajoDto ordenTrabajo;
@@ -19,7 +20,7 @@ public class ManoObraDto implements Serializable {
     public ManoObraDto() {
     }
 
-    public ManoObraDto(Long id, String detalle, LocalTime duracionHs, MecanicoDto mecanico, OrdenTrabajoDto ordenTrabajo) {
+    public ManoObraDto(Long id, String detalle, Long duracionHs, MecanicoDto mecanico, OrdenTrabajoDto ordenTrabajo) {
         this.id = id;
         this.detalle = detalle;
         this.duracionHs = duracionHs;
@@ -43,11 +44,11 @@ public class ManoObraDto implements Serializable {
         this.detalle = detalle;
     }
 
-    public LocalTime getDuracionHs() {
+    public Long getDuracionHs() {
         return duracionHs;
     }
 
-    public void setDuracionHs(LocalTime duracionHs) {
+    public void setDuracionHs(Long duracionHs) {
         this.duracionHs = duracionHs;
     }
 

@@ -23,7 +23,6 @@ public class FormaPagoMapperImpl implements FormaPagoMapper {
 
         OrdenTrabajo ordenTrabajo = this.ordenTrabajoService.findById(formaPagoDto.getId()).orElseThrow();
         ordenTrabajo.setCantidadCuotas(formaPagoDto.getCantidadCuotas());
-        ordenTrabajo.setFechaPago(Instant.now());
         ordenTrabajo.setFormaPago(formaPagoDto.getFormaPago());
         ordenTrabajo.setImporteTotal(formaPagoDto.getImporteTotal());
         ordenTrabajo.setTipoTarjeta(formaPagoDto.getFormaPago());
