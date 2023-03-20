@@ -1,5 +1,6 @@
 package com.besysoft.taller_mecanico.business.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -11,7 +12,7 @@ import java.util.Objects;
 public class ClienteDto implements Serializable {
     private Long id;
     @Size(max = 80)
-    @NotNull
+    @NotBlank(message = "Campo apellido no puede estar vacío")
     private String apellido;
     @Size(max = 15)
     private String celular;

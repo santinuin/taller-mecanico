@@ -30,20 +30,12 @@ public class AdministracionController {
 
     @PutMapping("/{empleadoId}/facturar")
     public ResponseEntity<?> facturar(@PathVariable Long empleadoId,
-                                     @RequestBody FormaPagoDto formaPagoDto){
+                                     @RequestBody FormaPagoDto formaPagoDto) throws InvalidRolException {
 
         Map<String, Object> response = new HashMap<>();
         OrdenTrabajo ordenTrabajo = formaPagoMapper.toEntity(formaPagoDto);
 
-        try {
             this.administracionService.facturar(empleadoId, ordenTrabajo);
-        } catch (InvalidRolException e) {
-
-            response.put("mensaje", "Error al facturar");
-            response.put("error", e.getMessage());
-
-            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
-        }
 
         response.put("succes", Boolean.TRUE);
         response.put("mensaje", "Facturacion exitosa");

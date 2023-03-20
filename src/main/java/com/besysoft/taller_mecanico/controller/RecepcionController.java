@@ -32,19 +32,12 @@ public class RecepcionController {
 
     @PostMapping("/{empleadoId}/recibir")
     public ResponseEntity<?> recibir(@PathVariable Long empleadoId,
-                                     @RequestBody ClienteDto clienteDto) {
+                                     @RequestBody ClienteDto clienteDto) throws InvalidRolException {
 
         Map<String, Object> response = new HashMap<>();
         Cliente cliente = this.clienteMapper.toEntity(clienteDto);
 
-        try {
             recepcionService.recibirClienteYVehiculo(empleadoId, cliente);
-        } catch (InvalidRolException e) {
-            response.put("mensaje", "Error al recibir vehiculo y cliente");
-            response.put("error", e.getMessage());
-
-            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
-        }
 
         response.put("succes", Boolean.TRUE);
         response.put("mensaje", "Se ha recibido cliente y vehículo con exito");
@@ -55,12 +48,11 @@ public class RecepcionController {
 
     @PostMapping("/{empleadoId}/generar-orden")
     public ResponseEntity<?> generarOrden(@PathVariable Long empleadoId,
-                                          @RequestBody OrdenTrabajoDto ordenTrabajoDto){
+                                          @RequestBody OrdenTrabajoDto ordenTrabajoDto) throws InvalidRolException {
 
         Map<String, Object> response = new HashMap<>();
         OrdenTrabajo ordenTrabajo = this.ordenTrabajoMapper.toEntity(ordenTrabajoDto);
 
-        try {
             this.recepcionService.generarOrdenDeTrabajo(empleadoId,
                     ordenTrabajo.getNivelCombustible(),
                     ordenTrabajo.getKilometraje(),
@@ -68,12 +60,6 @@ public class RecepcionController {
                     ordenTrabajo.getVehiculo().getPatente(),
                     ordenTrabajoDto.getMecanicoId());
 
-        } catch (InvalidRolException e) {
-            response.put("mensaje", "Error al generar orden de trabajo");
-            response.put("error", e.getMessage());
-
-            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
-        }
 
         response.put("succes", Boolean.TRUE);
         response.put("mensaje", "Se ha generado orden de trabajo con exito");
@@ -84,19 +70,11 @@ public class RecepcionController {
 
     @PutMapping("/{empleadoId}/entregar/{ordenTrabajoId}")
     public ResponseEntity<?> entregarVehiculo(@PathVariable Long empleadoId,
-                                 @PathVariable Long ordenTrabajoId){
+                                 @PathVariable Long ordenTrabajoId) throws InvalidRolException {
 
         Map<String, Object> response = new HashMap<>();
 
-        try {
             this.recepcionService.entregarVehiculo(empleadoId, ordenTrabajoId);
-        } catch (InvalidRolException e) {
-            response.put("mensaje", "Error al generar orden de trabajo");
-            response.put("error", e.getMessage());
-
-            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
-        }
-
 
         response.put("succes", Boolean.TRUE);
         response.put("mensaje", "Entrega de vehiculo exitosa");
