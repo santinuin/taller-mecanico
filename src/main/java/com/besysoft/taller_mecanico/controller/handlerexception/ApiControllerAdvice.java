@@ -32,4 +32,5 @@ public class ApiControllerAdvice {
                 ex.getMessage(),
                 null);
     }
+
 }

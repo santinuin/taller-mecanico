@@ -25,7 +25,7 @@ public class ManoDeObraController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ManoObraDto>> findAll() {
+    public ResponseEntity<?> findAll() {
 
         List<ManoObraDto> manoObraDtoList = this.manoObraService.findAll()
                 .stream()
