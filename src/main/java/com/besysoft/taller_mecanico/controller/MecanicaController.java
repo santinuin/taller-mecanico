@@ -6,6 +6,7 @@ import com.besysoft.taller_mecanico.business.mapper.interfaces.ManoObraMapper;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.RepuestoMapper;
 import com.besysoft.taller_mecanico.domain.entity.Repuesto;
 import com.besysoft.taller_mecanico.service.interfaces.MecanicaService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -57,7 +58,7 @@ public class MecanicaController {
     @PutMapping
     @RequestMapping("/{manoObraId}/finalizar")
     public ResponseEntity<?> finalizarReparacion(@PathVariable Long manoObraId,
-                                                 @RequestBody ManoObraDto manoObraDto) {
+                                                 @Valid @RequestBody ManoObraDto manoObraDto) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -72,7 +73,7 @@ public class MecanicaController {
     @PostMapping
     @RequestMapping("/{manoObraId}/cargar-repuesto")
     public ResponseEntity<?> cargarRepuestos(@PathVariable Long manoObraId,
-                                             @RequestBody RepuestoDto repuestoDto) {
+                                             @Valid @RequestBody RepuestoDto repuestoDto) {
 
         Map<String, Object> response = new HashMap<>();
 

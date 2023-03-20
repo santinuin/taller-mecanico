@@ -8,6 +8,7 @@ import com.besysoft.taller_mecanico.domain.entity.Cliente;
 import com.besysoft.taller_mecanico.domain.entity.OrdenTrabajo;
 import com.besysoft.taller_mecanico.exceptions.InvalidRolException;
 import com.besysoft.taller_mecanico.service.interfaces.RecepcionService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class RecepcionController {
 
     @PostMapping("/{empleadoId}/recibir")
     public ResponseEntity<?> recibir(@PathVariable Long empleadoId,
-                                     @RequestBody ClienteDto clienteDto) throws InvalidRolException {
+                                     @Valid @RequestBody ClienteDto clienteDto) throws InvalidRolException {
 
         Map<String, Object> response = new HashMap<>();
         Cliente cliente = this.clienteMapper.toEntity(clienteDto);
@@ -48,7 +49,7 @@ public class RecepcionController {
 
     @PostMapping("/{empleadoId}/generar-orden")
     public ResponseEntity<?> generarOrden(@PathVariable Long empleadoId,
-                                          @RequestBody OrdenTrabajoDto ordenTrabajoDto) throws InvalidRolException {
+                                          @Valid @RequestBody OrdenTrabajoDto ordenTrabajoDto) throws InvalidRolException {
 
         Map<String, Object> response = new HashMap<>();
         OrdenTrabajo ordenTrabajo = this.ordenTrabajoMapper.toEntity(ordenTrabajoDto);

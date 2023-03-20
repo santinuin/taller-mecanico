@@ -1,5 +1,6 @@
 package com.besysoft.taller_mecanico.business.dto;
 
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
@@ -11,6 +12,7 @@ public class MecanicoDto implements Serializable {
     @Size(max = 255)
     private String apellido;
     @Size(max = 15)
+    @Pattern(regexp = "^[0-9]*$", message = "Este campo solo puede contener dígitos")
     private String celular;
     @Size(max = 255)
     private String calle;
@@ -21,6 +23,7 @@ public class MecanicoDto implements Serializable {
     @Size(max = 255)
     private String localidad;
     @Size(max = 255)
+    @Pattern(regexp = "^[0-9]*$", message = "Este campo solo puede contener dígitos")
     private String numero;
     @Size(max = 255)
     private String piso;

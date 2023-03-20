@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
-import java.time.Duration;
-import java.time.LocalTime;
 import java.util.Objects;
 
 public class ManoObraDto implements Serializable {

@@ -1,8 +1,6 @@
 package com.besysoft.taller_mecanico.business.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,9 +10,10 @@ import java.util.Objects;
 public class ClienteDto implements Serializable {
     private Long id;
     @Size(max = 80)
-    @NotBlank(message = "Campo apellido no puede estar vacío")
+    @NotBlank(message = "Este campo no puede estar vacío")
     private String apellido;
     @Size(max = 15)
+    @Pattern(regexp = "^[0-9]*$", message = "Este campo solo puede contener dígitos")
     private String celular;
     @Size(max = 255)
     private String calle;
@@ -25,15 +24,18 @@ public class ClienteDto implements Serializable {
     @Size(max = 255)
     private String localidad;
     @Size(max = 255)
+    @Pattern(regexp = "^[0-9]*$", message = "Este campo solo puede contener dígitos")
     private String numero;
     @Size(max = 255)
     private String piso;
     @Size(max = 255)
+    @Email
     private String correoElectronico;
     @Size(max = 100)
-    @NotNull
+    @NotBlank(message = "Este campo no puede estar vacío")
     private String nombres;
     @Size(max = 15)
+    @Pattern(regexp = "^[0-9]*$", message = "Este campo solo puede contener dígitos")
     private String telefonoLinea;
     private List<VehiculoDto> vehiculos;
 
