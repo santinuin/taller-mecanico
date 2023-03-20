@@ -14,7 +14,7 @@ INSERT INTO `taller_mecanico`.`cliente_vehiculo` (`cliente_id`, `vehiculo_id`) V
 /* Populate table empleados */
 
 INSERT INTO `taller_mecanico`.`empleados` (`id`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `localidad`, `nombres`, `numero`, `piso`, `tipo_empleado`) VALUES ('1', 'Nuñez', 'Calasanz', '155129748', '5107', 'Colon', 'Mendiolaza', 'Santiago', '2770', '1', 'RECEPCIONISTA');
-INSERT INTO `taller_mecanico`.`empleados` (`id`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `localidad`, `nombres`, `numero`, `piso`, `tipo_empleado`) VALUES ('2', 'Nuñez', 'Calasanz', '155129748', '5107', 'Colon', 'Mendiolaza', 'Santiago', '2770', '1', 'ADMINISTRATIVO');
+INSERT INTO `taller_mecanico`.`empleados` (`id`, `apellido`, `calle`, `celular`, `codigo_postal`, `departamento`, `localidad`, `nombres`, `numero`, `piso`, `tipo_empleado`) VALUES ('2', 'Mendoza', 'Peatonal', '156158749', '5000', 'Colon', 'Cordoba', 'Carlos', '1550', '1', 'ADMINISTRATIVO');
 
 /* Populate table mecanicos */
 

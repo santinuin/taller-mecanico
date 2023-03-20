@@ -36,6 +36,19 @@ public class Vehiculo {
     @ManyToMany(mappedBy = "vehiculos", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Cliente> clientes;
 
+    public Vehiculo() {
+    }
+
+    public Vehiculo(Long id, Integer anio, String color, String marca, String modelo, String patente, List<Cliente> clientes) {
+        this.id = id;
+        this.anio = anio;
+        this.color = color;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.patente = patente;
+        this.clientes = clientes;
+    }
+
     public List<Cliente> getClientes() {
         return clientes;
     }

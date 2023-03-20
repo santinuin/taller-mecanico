@@ -67,6 +67,25 @@ public class Cliente {
             inverseJoinColumns = @JoinColumn(name = "vehiculo_id"))
     private List<Vehiculo> vehiculos;
 
+    public Cliente() {
+    }
+
+    public Cliente(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String correoElectronico, String nombres, String telefonoLinea, List<Vehiculo> vehiculos) {
+        this.id = id;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.calle = calle;
+        this.codigoPostal = codigoPostal;
+        this.departamento = departamento;
+        this.localidad = localidad;
+        this.numero = numero;
+        this.piso = piso;
+        this.correoElectronico = correoElectronico;
+        this.nombres = nombres;
+        this.telefonoLinea = telefonoLinea;
+        this.vehiculos = vehiculos;
+    }
+
     public List<Vehiculo> getVehiculos() {
         return vehiculos;
     }

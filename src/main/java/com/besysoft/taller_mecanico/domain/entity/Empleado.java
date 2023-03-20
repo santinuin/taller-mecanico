@@ -52,6 +52,23 @@ public class Empleado {
     @Enumerated(EnumType.STRING)
     private TipoEmpleadoEnum tipoEmpleado;
 
+    public Empleado() {
+    }
+
+    public Empleado(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String nombres, TipoEmpleadoEnum tipoEmpleado) {
+        this.id = id;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.calle = calle;
+        this.codigoPostal = codigoPostal;
+        this.departamento = departamento;
+        this.localidad = localidad;
+        this.numero = numero;
+        this.piso = piso;
+        this.nombres = nombres;
+        this.tipoEmpleado = tipoEmpleado;
+    }
+
     public Long getId() {
         return id;
     }

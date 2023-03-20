@@ -54,6 +54,24 @@ public class Mecanico {
     @Column(name = "nombres")
     private String nombres;
 
+    public Mecanico() {
+    }
+
+    public Mecanico(Long id, Character activo, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String especialidad, String nombres) {
+        this.id = id;
+        this.activo = activo;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.calle = calle;
+        this.codigoPostal = codigoPostal;
+        this.departamento = departamento;
+        this.localidad = localidad;
+        this.numero = numero;
+        this.piso = piso;
+        this.especialidad = especialidad;
+        this.nombres = nombres;
+    }
+
     public Long getId() {
         return id;
     }
