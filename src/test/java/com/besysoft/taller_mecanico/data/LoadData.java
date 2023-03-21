@@ -6,6 +6,7 @@ import com.besysoft.taller_mecanico.domain.entity.Mecanico;
 import com.besysoft.taller_mecanico.domain.entity.Vehiculo;
 import com.besysoft.taller_mecanico.domain.enumerations.TipoEmpleadoEnum;
 
+import java.util.List;
 import java.util.Optional;
 
 public class LoadData {
@@ -17,7 +18,7 @@ public class LoadData {
 
     /* Crear cliente */
     public static Optional<Cliente> crearCliente() {
-        return Optional.of(new Cliente(1L, "Perez", "111111111", "Calle", "1111", "Departamento", "Localidad", "11", "1", "juanperez@prueba.com", "Juan", "1111111", null));
+        return Optional.of(new Cliente(1L, "Perez", "111111111", "Calle", "1111", "Departamento", "Localidad", "11", "1", "juanperez@prueba.com", "Juan", "1111111", List.of(new Vehiculo(1L, 2012, "Rojo", "Fiat", "Uno", "AAA111", null))));
     }
 
     /* Crear empleado */

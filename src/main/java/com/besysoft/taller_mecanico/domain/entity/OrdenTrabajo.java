@@ -65,6 +65,27 @@ public class OrdenTrabajo {
     @JoinColumn(name = "vehiculo_id")
     private Vehiculo vehiculo;
 
+    public OrdenTrabajo() {
+    }
+
+    public OrdenTrabajo(Long id, Integer cantidadCuotas, String detalleFalla, EstadoOrdenEnum estado, LocalDateTime fechaFinReparacion, LocalDateTime fechaIngreso, LocalDateTime fechaPago, String formaPago, BigDecimal importeTotal, Long kilometraje, String nivelCombustible, String tipoTarjeta, Empleado administrativo, Empleado recepcionista, Vehiculo vehiculo) {
+        this.id = id;
+        this.cantidadCuotas = cantidadCuotas;
+        this.detalleFalla = detalleFalla;
+        this.estado = estado;
+        this.fechaFinReparacion = fechaFinReparacion;
+        this.fechaIngreso = fechaIngreso;
+        this.fechaPago = fechaPago;
+        this.formaPago = formaPago;
+        this.importeTotal = importeTotal;
+        this.kilometraje = kilometraje;
+        this.nivelCombustible = nivelCombustible;
+        this.tipoTarjeta = tipoTarjeta;
+        this.administrativo = administrativo;
+        this.recepcionista = recepcionista;
+        this.vehiculo = vehiculo;
+    }
+
     public Long getId() {
         return id;
     }
