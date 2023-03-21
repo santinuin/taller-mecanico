@@ -26,6 +26,17 @@ public class DetalleOrdenTrabajo {
     @JoinColumn(name = "repuesto_id")
     private Repuesto repuesto;
 
+    public DetalleOrdenTrabajo() {
+    }
+
+    public DetalleOrdenTrabajo(Long id, Integer cantidad, BigDecimal valorTotal, OrdenTrabajo ordenTrabajo, Repuesto repuesto) {
+        this.id = id;
+        this.cantidad = cantidad;
+        this.valorTotal = valorTotal;
+        this.ordenTrabajo = ordenTrabajo;
+        this.repuesto = repuesto;
+    }
+
     public Long getId() {
         return id;
     }

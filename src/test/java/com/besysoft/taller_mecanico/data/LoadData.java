@@ -54,4 +54,8 @@ public class LoadData {
         return Optional.of(new ManoObra(1L, null, null, crearMecanico().orElseThrow(), crearOrdenTrabajo().orElseThrow()));
     }
 
+    public static Optional<DetalleOrdenTrabajo> crearDetalle(){
+        return Optional.of(new DetalleOrdenTrabajo(1L, 1, new BigDecimal("55000"), crearOrdenTrabajo().orElseThrow(), crearRepuesto().orElseThrow()));
+    }
+
 }
