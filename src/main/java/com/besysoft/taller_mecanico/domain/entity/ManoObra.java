@@ -28,6 +28,17 @@ public class ManoObra {
     @JoinColumn(name = "orden_trabajo_id")
     private OrdenTrabajo ordenTrabajo;
 
+    public ManoObra() {
+    }
+
+    public ManoObra(Long id, String detalle, Duration duracionHs, Mecanico mecanico, OrdenTrabajo ordenTrabajo) {
+        this.id = id;
+        this.detalle = detalle;
+        this.duracionHs = duracionHs;
+        this.mecanico = mecanico;
+        this.ordenTrabajo = ordenTrabajo;
+    }
+
     public Long getId() {
         return id;
     }

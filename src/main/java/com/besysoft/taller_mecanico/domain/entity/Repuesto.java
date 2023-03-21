@@ -28,6 +28,17 @@ public class Repuesto {
     @Column(name = "valor", precision = 19, scale = 2)
     private BigDecimal valor;
 
+    public Repuesto() {
+    }
+
+    public Repuesto(Long id, String marca, String modelo, String respuesto, BigDecimal valor) {
+        this.id = id;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.respuesto = respuesto;
+        this.valor = valor;
+    }
+
     public Long getId() {
         return id;
     }

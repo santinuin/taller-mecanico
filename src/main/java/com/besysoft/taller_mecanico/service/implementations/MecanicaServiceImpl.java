@@ -76,9 +76,7 @@ public class MecanicaServiceImpl implements MecanicaService {
         BigDecimal valor_total = repuesto.getValor().multiply(BigDecimal.valueOf(cantidad));
         detalleOrdenTrabajo.setValorTotal(valor_total);
 
-
         this.detalleOrdenTrabajoRepository.save(detalleOrdenTrabajo);
-
     }
 
     @Override
@@ -90,6 +88,5 @@ public class MecanicaServiceImpl implements MecanicaService {
 
         this.ordenTrabajoRepository.save(ordenTrabajo);
     }
-
 
 }
