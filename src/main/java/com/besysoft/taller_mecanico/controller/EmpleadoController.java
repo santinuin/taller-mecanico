@@ -7,6 +7,8 @@ import com.besysoft.taller_mecanico.service.interfaces.EmpleadoService;
 
 import javax.validation.Valid;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/empleados")
+@Api(value = "Empleado Controller", tags = "Acciones permitidas para entidad Empleado")
 public class EmpleadoController {
 
     private final EmpleadoService empleadoService;
@@ -29,6 +32,7 @@ public class EmpleadoController {
     }
 
     @GetMapping
+    @ApiOperation(value = "Listar Empleados")
     public ResponseEntity<?> findAll() {
 
         List<EmpleadoDto> empleadoDtoList = this.empleadoService.findAll()
@@ -40,6 +44,7 @@ public class EmpleadoController {
     }
 
     @PostMapping("/alta")
+    @ApiOperation(value = "Alta de empleado")
     public ResponseEntity<?> altaEmpleado(@Valid @RequestBody EmpleadoDto empleadoDto) {
 
         Map<String, Object> response = new HashMap<>();
@@ -53,6 +58,7 @@ public class EmpleadoController {
     }
 
     @DeleteMapping("/baja/{id}")
+    @ApiOperation(value = "Baja de empleado")
     public ResponseEntity<?> bajaEmpleado(@PathVariable Long id) {
 
         Map<String, Object> response = new HashMap<>();

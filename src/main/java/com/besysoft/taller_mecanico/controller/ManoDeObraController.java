@@ -3,6 +3,8 @@ package com.besysoft.taller_mecanico.controller;
 import com.besysoft.taller_mecanico.business.dto.ManoObraDto;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.ManoObraMapper;
 import com.besysoft.taller_mecanico.service.interfaces.ManoObraService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/mano-obra")
+@Api(value = "Mano de Obra Controller", tags = "Acciones permitidas para entidad Mano de Obra")
 public class ManoDeObraController {
 
     private final ManoObraService manoObraService;
@@ -25,6 +28,7 @@ public class ManoDeObraController {
     }
 
     @GetMapping
+    @ApiOperation(value = "Listar Manos de Obra")
     public ResponseEntity<?> findAll() {
 
         List<ManoObraDto> manoObraDtoList = this.manoObraService.findAll()
