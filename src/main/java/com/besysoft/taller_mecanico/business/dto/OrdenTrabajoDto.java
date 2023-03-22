@@ -1,7 +1,8 @@
 package com.besysoft.taller_mecanico.business.dto;
 
 import com.besysoft.taller_mecanico.domain.enumerations.EstadoOrdenEnum;
-import jakarta.validation.constraints.Size;
+
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -31,7 +32,9 @@ public class OrdenTrabajoDto implements Serializable {
     public OrdenTrabajoDto() {
     }
 
-    public OrdenTrabajoDto(Long id, Integer cantidadCuotas, String detalleFalla, EstadoOrdenEnum estado, LocalDateTime fechaFinReparacion, LocalDateTime fechaIngreso, LocalDateTime fechaPago, String formaPago, BigDecimal importeTotal, Long kilometraje, String nivelCombustible, String tipoTarjeta, VehiculoDto vehiculo, Long mecanicoId) {
+    public OrdenTrabajoDto(Long id, Integer cantidadCuotas, String detalleFalla, EstadoOrdenEnum estado, LocalDateTime fechaFinReparacion,
+                           LocalDateTime fechaIngreso, LocalDateTime fechaPago, String formaPago, BigDecimal importeTotal, Long kilometraje,
+                           String nivelCombustible, String tipoTarjeta, VehiculoDto vehiculo, Long mecanicoId) {
         this.id = id;
         this.cantidadCuotas = cantidadCuotas;
         this.detalleFalla = detalleFalla;
@@ -182,6 +185,7 @@ public class OrdenTrabajoDto implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cantidadCuotas, detalleFalla, estado, fechaFinReparacion, fechaIngreso, fechaPago, formaPago, importeTotal, kilometraje, nivelCombustible, tipoTarjeta, vehiculo);
+        return Objects.hash(id, cantidadCuotas, detalleFalla, estado, fechaFinReparacion, fechaIngreso, fechaPago,
+                formaPago, importeTotal, kilometraje, nivelCombustible, tipoTarjeta, vehiculo);
     }
 }

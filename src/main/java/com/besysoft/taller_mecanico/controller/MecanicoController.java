@@ -4,7 +4,9 @@ import com.besysoft.taller_mecanico.business.dto.MecanicoDto;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.MecanicoMapper;
 import com.besysoft.taller_mecanico.domain.entity.Mecanico;
 import com.besysoft.taller_mecanico.service.interfaces.MecanicoService;
-import jakarta.validation.Valid;
+
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +40,7 @@ public class MecanicoController {
     }
 
     @PostMapping("/alta")
-    public ResponseEntity<?> altaMecanico(@Valid @RequestBody MecanicoDto mecanicoDto){
+    public ResponseEntity<?> altaMecanico(@Valid @RequestBody MecanicoDto mecanicoDto) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -51,7 +53,7 @@ public class MecanicoController {
     }
 
     @DeleteMapping("/baja/{id}")
-    public ResponseEntity<?> bajaMecanico(@PathVariable Long id){
+    public ResponseEntity<?> bajaMecanico(@PathVariable Long id) {
 
         Map<String, Object> response = new HashMap<>();
 

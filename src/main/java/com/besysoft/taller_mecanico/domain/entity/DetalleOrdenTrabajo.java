@@ -1,7 +1,6 @@
 package com.besysoft.taller_mecanico.domain.entity;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity

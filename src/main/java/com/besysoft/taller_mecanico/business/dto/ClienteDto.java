@@ -1,7 +1,6 @@
 package com.besysoft.taller_mecanico.business.dto;
 
-import jakarta.validation.constraints.*;
-
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +41,9 @@ public class ClienteDto implements Serializable {
     public ClienteDto() {
     }
 
-    public ClienteDto(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String correoElectronico, String nombres, String telefonoLinea, List<VehiculoDto> vehiculos) {
+    public ClienteDto(Long id, String apellido, String celular, String calle, String codigoPostal,
+                      String departamento, String localidad, String numero, String piso, String correoElectronico,
+                      String nombres, String telefonoLinea, List<VehiculoDto> vehiculos) {
         this.id = id;
         this.apellido = apellido;
         this.celular = celular;
@@ -184,6 +185,7 @@ public class ClienteDto implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, apellido, celular, calle, codigoPostal, departamento, localidad, numero, piso, correoElectronico, nombres, telefonoLinea, vehiculos);
+        return Objects.hash(id, apellido, celular, calle, codigoPostal, departamento, localidad, numero, piso,
+                correoElectronico, nombres, telefonoLinea, vehiculos);
     }
 }

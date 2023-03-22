@@ -1,8 +1,8 @@
 package com.besysoft.taller_mecanico.business.dto;
 
 import com.besysoft.taller_mecanico.domain.enumerations.TipoEmpleadoEnum;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -34,7 +34,8 @@ public class EmpleadoDto implements Serializable {
     public EmpleadoDto() {
     }
 
-    public EmpleadoDto(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String nombres, TipoEmpleadoEnum tipoEmpleado) {
+    public EmpleadoDto(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento,
+                       String localidad, String numero, String piso, String nombres, TipoEmpleadoEnum tipoEmpleado) {
         this.id = id;
         this.apellido = apellido;
         this.celular = celular;

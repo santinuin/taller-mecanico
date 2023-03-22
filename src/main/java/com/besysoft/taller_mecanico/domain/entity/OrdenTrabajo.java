@@ -1,8 +1,9 @@
 package com.besysoft.taller_mecanico.domain.entity;
 
 import com.besysoft.taller_mecanico.domain.enumerations.EstadoOrdenEnum;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -68,7 +69,10 @@ public class OrdenTrabajo {
     public OrdenTrabajo() {
     }
 
-    public OrdenTrabajo(Long id, Integer cantidadCuotas, String detalleFalla, EstadoOrdenEnum estado, LocalDateTime fechaFinReparacion, LocalDateTime fechaIngreso, LocalDateTime fechaPago, String formaPago, BigDecimal importeTotal, Long kilometraje, String nivelCombustible, String tipoTarjeta, Empleado administrativo, Empleado recepcionista, Vehiculo vehiculo) {
+    public OrdenTrabajo(Long id, Integer cantidadCuotas, String detalleFalla, EstadoOrdenEnum estado,
+                        LocalDateTime fechaFinReparacion, LocalDateTime fechaIngreso, LocalDateTime fechaPago,
+                        String formaPago, BigDecimal importeTotal, Long kilometraje, String nivelCombustible, String tipoTarjeta,
+                        Empleado administrativo, Empleado recepcionista, Vehiculo vehiculo) {
         this.id = id;
         this.cantidadCuotas = cantidadCuotas;
         this.detalleFalla = detalleFalla;

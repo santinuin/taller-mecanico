@@ -1,7 +1,8 @@
 package com.besysoft.taller_mecanico.business.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.validation.constraints.Size;
+
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;

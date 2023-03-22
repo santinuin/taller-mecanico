@@ -1,7 +1,7 @@
 package com.besysoft.taller_mecanico.domain.entity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.time.Duration;
 

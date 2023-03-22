@@ -5,7 +5,9 @@ import com.besysoft.taller_mecanico.business.mapper.interfaces.FormaPagoMapper;
 import com.besysoft.taller_mecanico.domain.entity.OrdenTrabajo;
 import com.besysoft.taller_mecanico.exceptions.InvalidRolException;
 import com.besysoft.taller_mecanico.service.interfaces.AdministracionService;
-import jakarta.validation.Valid;
+
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -31,12 +33,12 @@ public class AdministracionController {
 
     @PutMapping("/{empleadoId}/facturar")
     public ResponseEntity<?> facturar(@PathVariable Long empleadoId,
-                                     @Valid @RequestBody FormaPagoDto formaPagoDto) throws InvalidRolException {
+                                      @Valid @RequestBody FormaPagoDto formaPagoDto) throws InvalidRolException {
 
         Map<String, Object> response = new HashMap<>();
         OrdenTrabajo ordenTrabajo = formaPagoMapper.toEntity(formaPagoDto);
 
-            this.administracionService.facturar(empleadoId, ordenTrabajo);
+        this.administracionService.facturar(empleadoId, ordenTrabajo);
 
         response.put("success", Boolean.TRUE);
         response.put("mensaje", "Facturacion exitosa");

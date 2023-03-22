@@ -1,7 +1,7 @@
 package com.besysoft.taller_mecanico.domain.entity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "mecanicos")
@@ -57,7 +57,8 @@ public class Mecanico {
     public Mecanico() {
     }
 
-    public Mecanico(Long id, Character activo, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String especialidad, String nombres) {
+    public Mecanico(Long id, Character activo, String apellido, String celular, String calle, String codigoPostal,
+                    String departamento, String localidad, String numero, String piso, String especialidad, String nombres) {
         this.id = id;
         this.activo = activo;
         this.apellido = apellido;

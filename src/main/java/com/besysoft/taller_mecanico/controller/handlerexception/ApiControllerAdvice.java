@@ -17,7 +17,7 @@ public class ApiControllerAdvice {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ExceptionDto exceptionHandler(MethodArgumentNotValidException ex){
+    public ExceptionDto exceptionHandler(MethodArgumentNotValidException ex) {
         List<FieldError> errorList = ex.getBindingResult().getFieldErrors();
         Map<String, String> detalle = new HashMap<>();
         errorList.forEach(x -> detalle.put(x.getField(), x.getDefaultMessage()));
@@ -27,7 +27,7 @@ public class ApiControllerAdvice {
     @ExceptionHandler(InvalidRolException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.FORBIDDEN)
-    public ExceptionDto invalidRol(InvalidRolException ex){
+    public ExceptionDto invalidRol(InvalidRolException ex) {
         return new ExceptionDto(HttpStatus.FORBIDDEN.value(),
                 ex.getMessage(),
                 null);

@@ -6,7 +6,9 @@ import com.besysoft.taller_mecanico.business.mapper.interfaces.ManoObraMapper;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.RepuestoMapper;
 import com.besysoft.taller_mecanico.domain.entity.Repuesto;
 import com.besysoft.taller_mecanico.service.interfaces.MecanicaService;
-import jakarta.validation.Valid;
+
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +31,7 @@ public class MecanicaController {
         this.repuestoMapper = repuestoMapper;
     }
 
-    @GetMapping
-    @RequestMapping("/{mecanicoId}/asignaciones")
+    @GetMapping("/{mecanicoId}/asignaciones")
     public ResponseEntity<?> listarManosDeObraAsignadas(@PathVariable Long mecanicoId) {
 
         List<ManoObraDto> manoObraDtoList = this.mecanicaService.listarManosDeObraAsignadas(mecanicoId)
@@ -41,9 +42,8 @@ public class MecanicaController {
         return new ResponseEntity<>(manoObraDtoList, HttpStatus.OK);
     }
 
-    @PutMapping
-    @RequestMapping("/{manoObraId}/iniciar")
-    public ResponseEntity<?> iniciarReparacion(@PathVariable Long manoObraId){
+    @PutMapping("/{manoObraId}/iniciar")
+    public ResponseEntity<?> iniciarReparacion(@PathVariable Long manoObraId) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -55,8 +55,7 @@ public class MecanicaController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PutMapping
-    @RequestMapping("/{manoObraId}/finalizar")
+    @PutMapping("/{manoObraId}/finalizar")
     public ResponseEntity<?> finalizarReparacion(@PathVariable Long manoObraId,
                                                  @Valid @RequestBody ManoObraDto manoObraDto) {
 
@@ -70,8 +69,7 @@ public class MecanicaController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PostMapping
-    @RequestMapping("/{manoObraId}/cargar-repuesto")
+    @PostMapping("/{manoObraId}/cargar-repuesto")
     public ResponseEntity<?> cargarRepuestos(@PathVariable Long manoObraId,
                                              @Valid @RequestBody RepuestoDto repuestoDto) {
 
@@ -87,8 +85,7 @@ public class MecanicaController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @PutMapping
-    @RequestMapping("/{manoObraId}/para-facturar")
+    @PutMapping("/{manoObraId}/para-facturar")
     public ResponseEntity<?> ordenParaFacturar(@PathVariable Long manoObraId) {
 
         Map<String, Object> response = new HashMap<>();

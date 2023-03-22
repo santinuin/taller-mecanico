@@ -1,8 +1,9 @@
 package com.besysoft.taller_mecanico.domain.entity;
 
 import com.besysoft.taller_mecanico.domain.enumerations.TipoEmpleadoEnum;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "empleados")
@@ -55,7 +56,8 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String nombres, TipoEmpleadoEnum tipoEmpleado) {
+    public Empleado(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento,
+                    String localidad, String numero, String piso, String nombres, TipoEmpleadoEnum tipoEmpleado) {
         this.id = id;
         this.apellido = apellido;
         this.celular = celular;

@@ -4,7 +4,9 @@ import com.besysoft.taller_mecanico.business.dto.EmpleadoDto;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.EmpleadoMapper;
 import com.besysoft.taller_mecanico.domain.entity.Empleado;
 import com.besysoft.taller_mecanico.service.interfaces.EmpleadoService;
-import jakarta.validation.Valid;
+
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +40,7 @@ public class EmpleadoController {
     }
 
     @PostMapping("/alta")
-    public ResponseEntity<?> altaEmpleado(@Valid @RequestBody EmpleadoDto empleadoDto){
+    public ResponseEntity<?> altaEmpleado(@Valid @RequestBody EmpleadoDto empleadoDto) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -51,7 +53,7 @@ public class EmpleadoController {
     }
 
     @DeleteMapping("/baja/{id}")
-    public ResponseEntity<?> bajaEmpleado(@PathVariable Long id){
+    public ResponseEntity<?> bajaEmpleado(@PathVariable Long id) {
 
         Map<String, Object> response = new HashMap<>();
 

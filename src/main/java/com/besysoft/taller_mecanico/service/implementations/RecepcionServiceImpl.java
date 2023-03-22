@@ -9,7 +9,6 @@ import com.besysoft.taller_mecanico.service.interfaces.RecepcionService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -93,7 +92,7 @@ public class RecepcionServiceImpl implements RecepcionService {
         ordenTrabajo.setDetalleFalla(detalleFalla);
         ordenTrabajo.setVehiculo(vehiculoRepository.findByPatente(patenteVehiculo));
         ordenTrabajo.setEstado(CREADA);
-        
+
         this.ordenTrabajoRepository.save(ordenTrabajo);
 
         ManoObra manoObra = new ManoObra();

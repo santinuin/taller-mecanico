@@ -10,36 +10,36 @@ public class VehiculoMapperImpl implements VehiculoMapper {
 
     @Override
     public Vehiculo toEntity(VehiculoDto vehiculoDto) {
-        if ( vehiculoDto == null ) {
+        if (vehiculoDto == null) {
             return null;
         }
 
         Vehiculo vehiculo = new Vehiculo();
 
-        vehiculo.setId( vehiculoDto.getId() );
-        vehiculo.setAnio( vehiculoDto.getAnio() );
-        vehiculo.setColor( vehiculoDto.getColor() );
-        vehiculo.setMarca( vehiculoDto.getMarca() );
-        vehiculo.setModelo( vehiculoDto.getModelo() );
-        vehiculo.setPatente( vehiculoDto.getPatente() );
+        vehiculo.setId(vehiculoDto.getId());
+        vehiculo.setAnio(vehiculoDto.getAnio());
+        vehiculo.setColor(vehiculoDto.getColor());
+        vehiculo.setMarca(vehiculoDto.getMarca());
+        vehiculo.setModelo(vehiculoDto.getModelo());
+        vehiculo.setPatente(vehiculoDto.getPatente());
 
         return vehiculo;
     }
 
     @Override
     public VehiculoDto toDto(Vehiculo vehiculo) {
-        if ( vehiculo == null ) {
+        if (vehiculo == null) {
             return null;
         }
 
         VehiculoDto vehiculoDto = new VehiculoDto();
 
-        vehiculoDto.setId( vehiculo.getId() );
-        vehiculoDto.setAnio( vehiculo.getAnio() );
-        vehiculoDto.setColor( vehiculo.getColor() );
-        vehiculoDto.setMarca( vehiculo.getMarca() );
-        vehiculoDto.setModelo( vehiculo.getModelo() );
-        vehiculoDto.setPatente( vehiculo.getPatente() );
+        vehiculoDto.setId(vehiculo.getId());
+        vehiculoDto.setAnio(vehiculo.getAnio());
+        vehiculoDto.setColor(vehiculo.getColor());
+        vehiculoDto.setMarca(vehiculo.getMarca());
+        vehiculoDto.setModelo(vehiculo.getModelo());
+        vehiculoDto.setPatente(vehiculo.getPatente());
 
         return vehiculoDto;
     }

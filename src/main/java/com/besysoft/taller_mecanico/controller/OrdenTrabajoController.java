@@ -2,7 +2,6 @@ package com.besysoft.taller_mecanico.controller;
 
 import com.besysoft.taller_mecanico.business.dto.OrdenTrabajoDto;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.OrdenTrabajoMapper;
-import com.besysoft.taller_mecanico.service.interfaces.ManoObraService;
 import com.besysoft.taller_mecanico.service.interfaces.OrdenTrabajoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

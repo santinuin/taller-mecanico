@@ -1,9 +1,8 @@
 package com.besysoft.taller_mecanico.domain.entity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.List;
 
 @Entity
@@ -70,7 +69,9 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String correoElectronico, String nombres, String telefonoLinea, List<Vehiculo> vehiculos) {
+    public Cliente(Long id, String apellido, String celular, String calle, String codigoPostal, String departamento,
+                   String localidad, String numero, String piso, String correoElectronico, String nombres,
+                   String telefonoLinea, List<Vehiculo> vehiculos) {
         this.id = id;
         this.apellido = apellido;
         this.celular = celular;

@@ -1,7 +1,6 @@
 package com.besysoft.taller_mecanico.business.dto;
 
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -35,7 +34,8 @@ public class MecanicoDto implements Serializable {
     public MecanicoDto() {
     }
 
-    public MecanicoDto(Long id, Character activo, String apellido, String celular, String calle, String codigoPostal, String departamento, String localidad, String numero, String piso, String especialidad, String nombres) {
+    public MecanicoDto(Long id, Character activo, String apellido, String celular, String calle, String codigoPostal,
+                       String departamento, String localidad, String numero, String piso, String especialidad, String nombres) {
         this.id = id;
         this.activo = activo;
         this.apellido = apellido;
@@ -167,6 +167,7 @@ public class MecanicoDto implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, activo, apellido, celular, calle, codigoPostal, departamento, localidad, numero, piso, especialidad, nombres);
+        return Objects.hash(id, activo, apellido, celular, calle, codigoPostal,
+                departamento, localidad, numero, piso, especialidad, nombres);
     }
 }
