@@ -49,7 +49,7 @@ public class MecanicaController {
 
         this.mecanicaService.iniciarReparacion(manoObraId);
 
-        response.put("succes", Boolean.TRUE);
+        response.put("success", Boolean.TRUE);
         response.put("mensaje", "Mano de obra iniciada");
 
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -64,7 +64,7 @@ public class MecanicaController {
 
         this.mecanicaService.finalizarReparacion(manoObraId, manoObraDto.getDetalle(), manoObraDto.getDuracionHs());
 
-        response.put("succes", Boolean.TRUE);
+        response.put("success", Boolean.TRUE);
         response.put("mensaje", "Mano de obra completada con éxito");
 
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -81,7 +81,7 @@ public class MecanicaController {
 
         this.mecanicaService.cargarRepuestos(manoObraId, repuesto, repuestoDto.getCantidad());
 
-        response.put("succes", Boolean.TRUE);
+        response.put("success", Boolean.TRUE);
         response.put("mensaje", "Repuesto cargado con éxito");
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
@@ -95,7 +95,7 @@ public class MecanicaController {
 
         this.mecanicaService.ordenParaFacturar(manoObraId);
 
-        response.put("succes", Boolean.TRUE);
+        response.put("success", Boolean.TRUE);
         response.put("mensaje", "Orden lista para facturar");
 
         return new ResponseEntity<>(response, HttpStatus.OK);

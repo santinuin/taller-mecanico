@@ -40,7 +40,7 @@ public class RecepcionController {
 
             recepcionService.recibirClienteYVehiculo(empleadoId, cliente);
 
-        response.put("succes", Boolean.TRUE);
+        response.put("success", Boolean.TRUE);
         response.put("mensaje", "Se ha recibido cliente y vehículo con éxito");
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
@@ -62,7 +62,7 @@ public class RecepcionController {
                     ordenTrabajoDto.getMecanicoId());
 
 
-        response.put("succes", Boolean.TRUE);
+        response.put("success", Boolean.TRUE);
         response.put("mensaje", "Se ha generado orden de trabajo con éxito");
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
@@ -77,7 +77,7 @@ public class RecepcionController {
 
             this.recepcionService.entregarVehiculo(empleadoId, ordenTrabajoId);
 
-        response.put("succes", Boolean.TRUE);
+        response.put("success", Boolean.TRUE);
         response.put("mensaje", "Entrega de vehiculo exitosa");
 
         return new ResponseEntity<>(response, HttpStatus.OK);

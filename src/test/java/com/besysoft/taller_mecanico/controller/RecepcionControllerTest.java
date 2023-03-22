@@ -36,7 +36,6 @@ class RecepcionControllerTest {
     @MockBean
     OrdenTrabajoMapper ordenTrabajoMapper;
 
-
     ObjectMapper mapper;
 
     @BeforeEach
@@ -52,7 +51,7 @@ class RecepcionControllerTest {
                         .content(mapper.writeValueAsString(crearClienteDto())))
 
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.succes").value(true))
+                .andExpect(jsonPath("$.success").value(true))
                 .andExpect(jsonPath("$.mensaje").value("Se ha recibido cliente y vehículo con éxito"));
 
         verify(service, times(1)).recibirClienteYVehiculo(any(), any());
@@ -69,7 +68,7 @@ class RecepcionControllerTest {
                         .content(mapper.writeValueAsString(crearOrdenTrabajoDto())))
 
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.succes").value(true))
+                .andExpect(jsonPath("$.success").value(true))
                 .andExpect(jsonPath("$.mensaje").value("Se ha generado orden de trabajo con éxito"));
 
         verify(service, times(1)).generarOrdenDeTrabajo(any(),any(),any(),any(),any(),any());
@@ -83,7 +82,7 @@ class RecepcionControllerTest {
         mvc.perform(put("/recepcion/{empleadoId}/entregar/{ordenTrabajoId}", 1L, 1L))
 
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.succes").value(true))
+                .andExpect(jsonPath("$.success").value(true))
                 .andExpect(jsonPath("$.mensaje").value("Entrega de vehiculo exitosa"));
 
         verify(service, times(1)).entregarVehiculo(any(),any());

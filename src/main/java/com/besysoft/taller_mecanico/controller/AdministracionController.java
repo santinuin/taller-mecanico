@@ -38,7 +38,7 @@ public class AdministracionController {
 
             this.administracionService.facturar(empleadoId, ordenTrabajo);
 
-        response.put("succes", Boolean.TRUE);
+        response.put("success", Boolean.TRUE);
         response.put("mensaje", "Facturacion exitosa");
 
         return new ResponseEntity<>(response, HttpStatus.OK);
