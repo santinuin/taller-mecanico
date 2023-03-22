@@ -41,7 +41,7 @@ class OrdenTrabajoServiceTest {
         List<OrdenTrabajo> ordenTrabajoList = service.findAll();
 
         assertFalse(ordenTrabajoList.isEmpty());
-        assertEquals("Carburador" , ordenTrabajoList.get(0).getDetalleFalla());
+        assertEquals("Carburador", ordenTrabajoList.get(0).getDetalleFalla());
         verify(ordenTrabajoRepository).findAll();
     }
 }

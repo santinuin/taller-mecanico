@@ -1,10 +1,8 @@
 package com.besysoft.taller_mecanico.controller;
 
 import com.besysoft.taller_mecanico.business.dto.ClienteDto;
-import com.besysoft.taller_mecanico.business.dto.MecanicoDto;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.ClienteMapper;
 import com.besysoft.taller_mecanico.domain.entity.Cliente;
-import com.besysoft.taller_mecanico.domain.entity.Mecanico;
 import com.besysoft.taller_mecanico.service.interfaces.ClienteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,9 +15,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static com.besysoft.taller_mecanico.data.LoadData.*;
+import static com.besysoft.taller_mecanico.data.LoadData.crearCliente;
+import static com.besysoft.taller_mecanico.data.LoadData.crearClienteDto;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;

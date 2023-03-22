@@ -1,6 +1,5 @@
 package com.besysoft.taller_mecanico.service;
 
-import com.besysoft.taller_mecanico.domain.entity.Empleado;
 import com.besysoft.taller_mecanico.domain.entity.Mecanico;
 import com.besysoft.taller_mecanico.repository.MecanicoRepository;
 import com.besysoft.taller_mecanico.service.interfaces.MecanicoService;
@@ -9,13 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static com.besysoft.taller_mecanico.data.LoadData.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.besysoft.taller_mecanico.data.LoadData.crearMecanico;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.*;
+
 @SpringBootTest
 class MecanicoServiceTest {
 
@@ -24,6 +24,7 @@ class MecanicoServiceTest {
 
     @Autowired
     MecanicoService service;
+
     @Test
     void findAll() {
         List<Mecanico> mecanicos = List.of(crearMecanico().orElseThrow());

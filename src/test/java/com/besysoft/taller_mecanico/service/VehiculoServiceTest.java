@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
 @SpringBootTest
 class VehiculoServiceTest {
 
@@ -31,7 +32,7 @@ class VehiculoServiceTest {
         List<Vehiculo> vehiculoList = service.findAll();
 
         assertFalse(vehiculoList.isEmpty());
-        assertEquals("AAA111" , vehiculoList.get(0).getPatente());
+        assertEquals("AAA111", vehiculoList.get(0).getPatente());
         verify(vehiculoRepository).findAll();
     }
 }

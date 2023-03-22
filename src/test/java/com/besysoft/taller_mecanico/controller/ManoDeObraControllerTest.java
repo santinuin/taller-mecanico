@@ -1,9 +1,7 @@
 package com.besysoft.taller_mecanico.controller;
 
-import com.besysoft.taller_mecanico.business.dto.ClienteDto;
 import com.besysoft.taller_mecanico.business.dto.ManoObraDto;
 import com.besysoft.taller_mecanico.business.mapper.interfaces.ManoObraMapper;
-import com.besysoft.taller_mecanico.domain.entity.Cliente;
 import com.besysoft.taller_mecanico.domain.entity.ManoObra;
 import com.besysoft.taller_mecanico.service.interfaces.ManoObraService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,15 +15,15 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static com.besysoft.taller_mecanico.data.LoadData.*;
+import static com.besysoft.taller_mecanico.data.LoadData.crearManoObra;
+import static com.besysoft.taller_mecanico.data.LoadData.crearManoObraDto;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+
 @WebMvcTest(ManoDeObraController.class)
 class ManoDeObraControllerTest {
 

@@ -1,6 +1,5 @@
 package com.besysoft.taller_mecanico.service;
 
-import com.besysoft.taller_mecanico.data.LoadData;
 import com.besysoft.taller_mecanico.domain.entity.Cliente;
 import com.besysoft.taller_mecanico.domain.entity.ManoObra;
 import com.besysoft.taller_mecanico.domain.entity.OrdenTrabajo;
@@ -8,21 +7,18 @@ import com.besysoft.taller_mecanico.domain.enumerations.EstadoOrdenEnum;
 import com.besysoft.taller_mecanico.exceptions.InvalidRolException;
 import com.besysoft.taller_mecanico.repository.*;
 import com.besysoft.taller_mecanico.service.interfaces.RecepcionService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static com.besysoft.taller_mecanico.data.LoadData.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;

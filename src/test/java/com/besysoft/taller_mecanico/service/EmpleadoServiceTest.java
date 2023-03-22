@@ -1,12 +1,8 @@
 package com.besysoft.taller_mecanico.service;
 
-import com.besysoft.taller_mecanico.data.LoadData;
 import com.besysoft.taller_mecanico.domain.entity.Empleado;
 import com.besysoft.taller_mecanico.repository.EmpleadoRepository;
-import com.besysoft.taller_mecanico.service.implementations.EmpleadoServiceImpl;
 import com.besysoft.taller_mecanico.service.interfaces.EmpleadoService;
-import jakarta.validation.constraints.AssertFalse;
-import jakarta.validation.constraints.AssertTrue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +14,8 @@ import java.util.Optional;
 
 import static com.besysoft.taller_mecanico.data.LoadData.crearEmpleadoAdmin;
 import static com.besysoft.taller_mecanico.data.LoadData.crearEmpleadoRecep;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -29,6 +26,7 @@ class EmpleadoServiceTest {
 
     @Autowired
     EmpleadoService service;
+
     @Test
     void findAll() {
         List<Empleado> empleados = Arrays.asList(crearEmpleadoRecep().orElseThrow(),

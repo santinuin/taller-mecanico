@@ -71,7 +71,7 @@ class RecepcionControllerTest {
                 .andExpect(jsonPath("$.success").value(true))
                 .andExpect(jsonPath("$.mensaje").value("Se ha generado orden de trabajo con éxito"));
 
-        verify(service, times(1)).generarOrdenDeTrabajo(any(),any(),any(),any(),any(),any());
+        verify(service, times(1)).generarOrdenDeTrabajo(any(), any(), any(), any(), any(), any());
         verify(ordenTrabajoMapper, times(1)).toEntity(any(OrdenTrabajoDto.class));
     }
 
@@ -85,6 +85,6 @@ class RecepcionControllerTest {
                 .andExpect(jsonPath("$.success").value(true))
                 .andExpect(jsonPath("$.mensaje").value("Entrega de vehiculo exitosa"));
 
-        verify(service, times(1)).entregarVehiculo(any(),any());
+        verify(service, times(1)).entregarVehiculo(any(), any());
     }
 }

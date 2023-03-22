@@ -1,8 +1,6 @@
 package com.besysoft.taller_mecanico.service;
 
-import com.besysoft.taller_mecanico.data.LoadData;
 import com.besysoft.taller_mecanico.domain.entity.DetalleOrdenTrabajo;
-import com.besysoft.taller_mecanico.domain.entity.Repuesto;
 import com.besysoft.taller_mecanico.repository.DetalleOrdenTrabajoRepository;
 import com.besysoft.taller_mecanico.service.interfaces.DetalleOrdenTrabajoService;
 import org.junit.jupiter.api.Test;
@@ -13,9 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.Optional;
 
 import static com.besysoft.taller_mecanico.data.LoadData.crearDetalle;
-import static com.besysoft.taller_mecanico.data.LoadData.crearRepuesto;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -26,6 +22,7 @@ class DetalleOrdenTrabajoServiceTest {
 
     @Autowired
     DetalleOrdenTrabajoService service;
+
     @Test
     void findByRepuesto_Id() {
         Optional<DetalleOrdenTrabajo> detalle = crearDetalle();

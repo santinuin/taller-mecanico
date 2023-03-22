@@ -54,6 +54,7 @@ class MecanicaServiceTest {
         assertEquals(EstadoOrdenEnum.CREADA, manoObraAsignadaList.get(0).getOrdenTrabajo().getEstado());
 
     }
+
     @Test
     @DisplayName("Listar manos de obra asignadas, cuando ninguna esta en estado creada")
     void listarManosDeObraAsignadasEmpty() {

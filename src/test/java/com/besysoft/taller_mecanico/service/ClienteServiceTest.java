@@ -24,6 +24,7 @@ class ClienteServiceTest {
 
     @Autowired
     ClienteService service;
+
     @Test
     void findAll() {
         when(clienteRepository.findAll()).thenReturn(List.of(crearCliente().orElseThrow()));
@@ -31,7 +32,7 @@ class ClienteServiceTest {
         List<Cliente> clienteList = service.findAll();
 
         assertFalse(clienteList.isEmpty());
-        assertEquals("Juan" , clienteList.get(0).getNombres());
+        assertEquals("Juan", clienteList.get(0).getNombres());
         verify(clienteRepository).findAll();
     }
 }
