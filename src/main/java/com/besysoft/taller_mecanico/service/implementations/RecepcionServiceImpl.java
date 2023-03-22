@@ -104,6 +104,7 @@ public class RecepcionServiceImpl implements RecepcionService {
     }
 
     @Override
+    @Transactional
     public void entregarVehiculo(Long empleadoId, Long ordenTrabajoId) throws InvalidRolException {
 
         Empleado empleado = this.empleadoRepository.findById(empleadoId).orElseThrow();

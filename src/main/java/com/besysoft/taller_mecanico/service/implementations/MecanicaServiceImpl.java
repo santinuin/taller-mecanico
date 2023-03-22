@@ -10,6 +10,7 @@ import com.besysoft.taller_mecanico.repository.ManoObraRepository;
 import com.besysoft.taller_mecanico.repository.OrdenTrabajoRepository;
 import com.besysoft.taller_mecanico.service.interfaces.MecanicaService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -35,6 +36,7 @@ public class MecanicaServiceImpl implements MecanicaService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public List<ManoObra> listarManosDeObraAsignadas(Long mecanicoId) {
         return this.manoObraRepository.findByMecanico_Id(mecanicoId).stream()
                 .filter(x -> x.getOrdenTrabajo().getEstado() == EstadoOrdenEnum.CREADA)
@@ -42,6 +44,7 @@ public class MecanicaServiceImpl implements MecanicaService {
     }
 
     @Override
+    @Transactional
     public void iniciarReparacion(Long manoObraId) {
         OrdenTrabajo ordenTrabajo = this.manoObraRepository.findById(manoObraId).get().getOrdenTrabajo();
         ordenTrabajo.setEstado(EstadoOrdenEnum.EN_REPARACION);
@@ -49,6 +52,7 @@ public class MecanicaServiceImpl implements MecanicaService {
     }
 
     @Override
+    @Transactional
     public void finalizarReparacion(Long manoObraId, String detalle, Long duracion_hs) {
 
         ManoObra manoObraAsignada = this.manoObraRepository.findById(manoObraId).orElseThrow();
@@ -64,6 +68,7 @@ public class MecanicaServiceImpl implements MecanicaService {
     }
 
     @Override
+    @Transactional
     public void cargarRepuestos(Long manoObraId, Repuesto repuesto, Integer cantidad) {
 
         DetalleOrdenTrabajo detalleOrdenTrabajo = new DetalleOrdenTrabajo();
@@ -80,6 +85,7 @@ public class MecanicaServiceImpl implements MecanicaService {
     }
 
     @Override
+    @Transactional
     public void ordenParaFacturar(Long manoObraId) {
 
         OrdenTrabajo ordenTrabajo = this.manoObraRepository.findById(manoObraId).get().getOrdenTrabajo();

@@ -4,6 +4,7 @@ import com.besysoft.taller_mecanico.domain.entity.Mecanico;
 import com.besysoft.taller_mecanico.repository.MecanicoRepository;
 import com.besysoft.taller_mecanico.service.interfaces.MecanicoService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,16 +18,19 @@ public class MecanicoServiceImpl implements MecanicoService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Mecanico> findAll() {
         return this.mecanicoRepository.findAll();
     }
 
     @Override
+    @Transactional
     public Mecanico alta(Mecanico mecanico) {
         return this.mecanicoRepository.save(mecanico);
     }
 
     @Override
+    @Transactional
     public void bajaById(Long id) {
         this.mecanicoRepository.deleteById(id);
     }

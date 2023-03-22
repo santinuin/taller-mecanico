@@ -4,6 +4,7 @@ import com.besysoft.taller_mecanico.domain.entity.ManoObra;
 import com.besysoft.taller_mecanico.repository.ManoObraRepository;
 import com.besysoft.taller_mecanico.service.interfaces.ManoObraService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,11 +18,13 @@ public class ManoObraServiceImpl implements ManoObraService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<ManoObra> findAll() {
         return manoObraRepository.findAll();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ManoObra findByOrdenTrabajo_Id(Long id) {
         return this.manoObraRepository.findByOrdenTrabajo_Id(id).orElseThrow();
     }

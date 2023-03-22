@@ -18,7 +18,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Cliente> findAll() {
 
         return this.clienteRepository.findAll();

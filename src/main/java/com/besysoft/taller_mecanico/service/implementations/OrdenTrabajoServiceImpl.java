@@ -4,6 +4,7 @@ import com.besysoft.taller_mecanico.domain.entity.OrdenTrabajo;
 import com.besysoft.taller_mecanico.repository.OrdenTrabajoRepository;
 import com.besysoft.taller_mecanico.service.interfaces.OrdenTrabajoService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,12 +20,14 @@ public class OrdenTrabajoServiceImpl implements OrdenTrabajoService {
     }
 
     @Override
-    public Optional<OrdenTrabajo> findById(Long id) {
-        return this.ordenTrabajoRepository.findById(id);
+    @Transactional(readOnly = true)
+    public List<OrdenTrabajo> findAll() {
+        return this.ordenTrabajoRepository.findAll();
     }
 
     @Override
-    public List<OrdenTrabajo> findAll() {
-        return this.ordenTrabajoRepository.findAll();
+    @Transactional(readOnly = true)
+    public Optional<OrdenTrabajo> findById(Long id) {
+        return this.ordenTrabajoRepository.findById(id);
     }
 }

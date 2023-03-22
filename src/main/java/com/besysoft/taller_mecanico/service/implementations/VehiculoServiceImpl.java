@@ -22,7 +22,7 @@ public class VehiculoServiceImpl implements VehiculoService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Vehiculo> findAll() {
 
         return this.vehiculoRepository.findAll();
