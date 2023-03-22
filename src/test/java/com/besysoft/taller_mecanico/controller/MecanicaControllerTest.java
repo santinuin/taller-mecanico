@@ -39,6 +39,7 @@ class MecanicaControllerTest {
     RepuestoMapper repuestoMapper;
 
     ObjectMapper mapper;
+
     @BeforeEach
     void setUp() {
         mapper = new ObjectMapper();
@@ -53,7 +54,7 @@ class MecanicaControllerTest {
         when(manoObraMapper.toDto(any())).thenReturn(manoObraDto);
 
         mvc.perform(get("/mecanica/{mecanicoId}/asignaciones", 1L)
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -84,8 +85,8 @@ class MecanicaControllerTest {
         ManoObraDto manoObraDto = crearManoObraDto();
 
         mvc.perform(put("/mecanica/{manoObraId}/finalizar", 1L)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(manoObraDto)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(manoObraDto)))
 
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.success").value(true))
@@ -99,8 +100,8 @@ class MecanicaControllerTest {
         RepuestoDto repuestoDto = crearRepuestoDto();
 
         mvc.perform(post("/mecanica/{manoObraId}/cargar-repuesto", 1L)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(repuestoDto)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(repuestoDto)))
 
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.success").value(true))
@@ -114,7 +115,7 @@ class MecanicaControllerTest {
 
 
         mvc.perform(put("/mecanica/{manoObraId}/para-facturar", 1L)
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.success").value(true))
