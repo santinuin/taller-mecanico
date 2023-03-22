@@ -1,6 +1,7 @@
 package com.besysoft.taller_mecanico.business.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
@@ -10,7 +11,7 @@ import java.util.Objects;
 
 public class FormaPagoDto implements Serializable {
 
-    @NotBlank(message = "Este campo no puede estar vacío")
+    @NotNull(message = "Este campo no puede estar vacío")
     private Long id;
     private Integer cantidadCuotas;
     private LocalDateTime fechaPago;

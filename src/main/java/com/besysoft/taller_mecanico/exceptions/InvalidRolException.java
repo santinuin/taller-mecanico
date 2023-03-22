@@ -6,7 +6,4 @@ public class InvalidRolException extends Exception{
         super(message);
     }
 
-    public InvalidRolException(String message, Throwable cause) {
-        super(message, cause);
-    }
 }

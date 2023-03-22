@@ -45,7 +45,7 @@ public class MecanicoController {
         Mecanico nuevoMecanico = this.mecanicoService.alta(this.mecanicoMapper.toEntity(mecanicoDto));
 
         response.put("mensaje", "El mecánico ha sido creado con éxito");
-        response.put("empleado", nuevoMecanico);
+        response.put("mecanico", nuevoMecanico);
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

@@ -19,7 +19,7 @@ public class OrdenTrabajoController {
     private final OrdenTrabajoService ordenTrabajoService;
     private final OrdenTrabajoMapper ordenTrabajoMapper;
 
-    public OrdenTrabajoController(OrdenTrabajoService ordenTrabajoService, ManoObraService manoObraService, OrdenTrabajoMapper ordenTrabajoMapper) {
+    public OrdenTrabajoController(OrdenTrabajoService ordenTrabajoService, OrdenTrabajoMapper ordenTrabajoMapper) {
         this.ordenTrabajoService = ordenTrabajoService;
         this.ordenTrabajoMapper = ordenTrabajoMapper;
     }

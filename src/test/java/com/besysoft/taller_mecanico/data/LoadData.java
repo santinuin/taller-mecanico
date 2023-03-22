@@ -1,6 +1,7 @@
 package com.besysoft.taller_mecanico.data;
 
 import com.besysoft.taller_mecanico.business.dto.*;
+import com.besysoft.taller_mecanico.business.mapper.interfaces.FormaPagoMapper;
 import com.besysoft.taller_mecanico.domain.entity.*;
 import com.besysoft.taller_mecanico.domain.enumerations.TipoEmpleadoEnum;
 
@@ -68,7 +69,7 @@ public class LoadData {
 
     /* Crear cliente */
     public static ClienteDto crearClienteDto() {
-        return new ClienteDto(null, "Perez", "111111111", "Calle", "1111", "Departamento", "Localidad", "11", "1", "juanperez@prueba.com", "Juan", "1111111", List.of(crearVehiculoDto()));
+        return new ClienteDto(1L, "Perez", "111111111", "Calle", "1111", "Departamento", "Localidad", "11", "1", "juanperez@prueba.com", "Juan", "1111111", List.of(crearVehiculoDto()));
     }
 
     /* Crear empleado */
@@ -84,7 +85,7 @@ public class LoadData {
     /* Crear mecanico */
 
     public static MecanicoDto crearMecanicoDto() {
-        return new MecanicoDto(null, 'A', "Gomez", "156894854", "Publica", "5000", "Capital", "Córdoba", "35", "1", "Generalista", "Alberto");
+        return new MecanicoDto(1L, 'A', "Gomez", "156894854", "Publica", "5000", "Capital", "Córdoba", "35", "1", "Generalista", "Alberto");
     }
 
     /* Crear repuesto */
@@ -104,4 +105,8 @@ public class LoadData {
         return new ManoObraDto(1L, null, null, crearMecanicoDto(), crearOrdenTrabajoDto());
     }
 
+    /* Crear forma paago */
+    public static FormaPagoDto crearFormaPagoDto() {
+        return new FormaPagoDto(1L, 12, null, "Tarjeta", new BigDecimal("80000"), "Debito");
+    }
 }
