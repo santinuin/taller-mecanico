@@ -5,6 +5,7 @@ import com.besysoft.taller_mecanico.domain.entity.*;
 import com.besysoft.taller_mecanico.domain.enumerations.TipoEmpleadoEnum;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,23 +18,28 @@ public class LoadData {
 
     /* Crear cliente */
     public static Optional<Cliente> crearCliente() {
-        return Optional.of(new Cliente(1L, "Perez", "111111111", "Calle", "1111", "Departamento", "Localidad", "11", "1", "juanperez@prueba.com", "Juan", "1111111", List.of(crearVehiculo().orElseThrow())));
+        return Optional.of(new Cliente(1L, "Perez", "111111111", "Calle", "1111",
+                "Departamento", "Localidad", "11", "1", "juanperez@prueba.com",
+                "Juan", "1111111", new ArrayList<>(List.of(crearVehiculo().orElseThrow()))));
     }
 
     /* Crear empleado */
 
     public static Optional<Empleado> crearEmpleadoRecep() {
-        return Optional.of(new Empleado(1L, "Nuñez", "155129748", "Calasanz", "5107", "Colon", "Córdoba", "2770", "1", "Santiago", TipoEmpleadoEnum.RECEPCIONISTA));
+        return Optional.of(new Empleado(1L, "Nuñez", "155129748", "Calasanz", "5107",
+                "Colon", "Córdoba", "2770", "1", "Santiago", TipoEmpleadoEnum.RECEPCIONISTA));
     }
 
     public static Optional<Empleado> crearEmpleadoAdmin() {
-        return Optional.of(new Empleado(2L, "Mendoza", "156158749", "Peatonal", "5000", "Capital", "Cordoba", "1550", "1", "Carlos", TipoEmpleadoEnum.ADMINISTRATIVO));
+        return Optional.of(new Empleado(2L, "Mendoza", "156158749", "Peatonal", "5000",
+                "Capital", "Cordoba", "1550", "1", "Carlos", TipoEmpleadoEnum.ADMINISTRATIVO));
     }
 
     /* Crear mecanico */
 
     public static Optional<Mecanico> crearMecanico() {
-        return Optional.of(new Mecanico(1L, 'A', "Gomez", "156894854", "Publica", "5000", "Capital", "Córdoba", "35", "1", "Generalista", "Alberto"));
+        return Optional.of(new Mecanico(1L, 'A', "Gomez", "156894854", "Publica", "5000",
+                "Capital", "Córdoba", "35", "1", "Generalista", "Alberto"));
     }
 
     /* Crear repuesto */
@@ -45,7 +51,9 @@ public class LoadData {
     /* Crear orden */
 
     public static Optional<OrdenTrabajo> crearOrdenTrabajo() {
-        return Optional.of(new OrdenTrabajo(1L, null, "Carburador", null, null, null, null, null, null, 80000L, "Medio", null, null, crearEmpleadoRecep().orElseThrow(), crearVehiculo().orElseThrow()));
+        return Optional.of(new OrdenTrabajo(1L, null, "Carburador", null, null,
+                null, null, null, null, 80000L, "Medio", null,
+                null, crearEmpleadoRecep().orElseThrow(), crearVehiculo().orElseThrow()));
     }
 
     /* Crear mano obra */
@@ -66,23 +74,27 @@ public class LoadData {
 
     /* Crear cliente */
     public static ClienteDto crearClienteDto() {
-        return new ClienteDto(1L, "Perez", "111111111", "Calle", "1111", "Departamento", "Localidad", "11", "1", "juanperez@prueba.com", "Juan", "1111111", List.of(crearVehiculoDto()));
+        return new ClienteDto(1L, "Perez", "111111111", "Calle", "1111", "Departamento",
+                "Localidad", "11", "1", "juanperez@prueba.com", "Juan", "1111111", List.of(crearVehiculoDto()));
     }
 
     /* Crear empleado */
 
     public static EmpleadoDto crearEmpleadoRecepDto() {
-        return new EmpleadoDto(null, "Nuñez", "155129748", "Calasanz", "5107", "Colon", "Córdoba", "2770", "1", "Santiago", TipoEmpleadoEnum.RECEPCIONISTA);
+        return new EmpleadoDto(null, "Nuñez", "155129748", "Calasanz", "5107", "Colon",
+                "Córdoba", "2770", "1", "Santiago", TipoEmpleadoEnum.RECEPCIONISTA);
     }
 
     public static EmpleadoDto crearEmpleadoAdminDto() {
-        return new EmpleadoDto(null, "Mendoza", "156158749", "Peatonal", "5000", "Capital", "Cordoba", "1550", "1", "Carlos", TipoEmpleadoEnum.ADMINISTRATIVO);
+        return new EmpleadoDto(null, "Mendoza", "156158749", "Peatonal", "5000", "Capital",
+                "Cordoba", "1550", "1", "Carlos", TipoEmpleadoEnum.ADMINISTRATIVO);
     }
 
     /* Crear mecanico */
 
     public static MecanicoDto crearMecanicoDto() {
-        return new MecanicoDto(1L, 'A', "Gomez", "156894854", "Publica", "5000", "Capital", "Córdoba", "35", "1", "Generalista", "Alberto");
+        return new MecanicoDto(1L, 'A', "Gomez", "156894854", "Publica", "5000",
+                "Capital", "Córdoba", "35", "1", "Generalista", "Alberto");
     }
 
     /* Crear repuesto */
@@ -94,7 +106,9 @@ public class LoadData {
     /* Crear orden */
 
     public static OrdenTrabajoDto crearOrdenTrabajoDto() {
-        return new OrdenTrabajoDto(null, null, "Carburador", null, null, null, null, null, null, 80000L, "Medio", null, crearVehiculoDto(), 1L);
+        return new OrdenTrabajoDto(null, null, "Carburador", null, null,
+                null, null, null, null, 80000L, "Medio", null,
+                crearVehiculoDto(), 1L);
     }
 
     /* Crear mano obra */

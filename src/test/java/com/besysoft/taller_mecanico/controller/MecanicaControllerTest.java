@@ -70,7 +70,10 @@ class MecanicaControllerTest {
 
     @Test
     void iniciarReparacion() throws Exception {
-        mvc.perform(post("/mecanica/{manoObraId}/iniciar", 1L)
+        ManoObra manoObra = crearManoObra().orElseThrow();
+        ManoObraDto manoObraDto = crearManoObraDto();
+
+        mvc.perform(put("/mecanica/{manoObraId}/iniciar", 1L)
                         .contentType(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
