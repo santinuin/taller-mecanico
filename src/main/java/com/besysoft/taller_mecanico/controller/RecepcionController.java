@@ -58,7 +58,9 @@ public class RecepcionController {
     @PostMapping("/{empleadoId}/generar-orden")
     @ApiOperation(value = "2.Generar orden",
             tags = "Flujo de trabajo",
-            notes = "Registra datos del vehículo y genera orden de trabajo asignandole fecha y estado CREADA")
+            notes = "Registra datos del vehículo (combustible, kilometraje, detalle) " +
+                    "y genera orden de trabajo asignandole fecha y estado CREADA (automaticamente)," +
+                    " ademas de asignar mecánico")
     public ResponseEntity<?> generarOrden(@PathVariable Long empleadoId,
                                           @Valid @RequestBody OrdenTrabajoDto ordenTrabajoDto) throws InvalidRolException {
 
@@ -83,7 +85,7 @@ public class RecepcionController {
     @PutMapping("/{empleadoId}/entregar/{ordenTrabajoId}")
     @ApiOperation(value = "9.Entregar Vehículo",
             tags = "Flujo de trabajo",
-            notes = "Se cierra Orden de Trabajo y se asigna estado CERRADA")
+            notes = "Se cierra Orden de Trabajo (se asigna estado CERRADA)")
     public ResponseEntity<?> entregarVehiculo(@PathVariable Long empleadoId,
                                               @PathVariable Long ordenTrabajoId) throws InvalidRolException {
 

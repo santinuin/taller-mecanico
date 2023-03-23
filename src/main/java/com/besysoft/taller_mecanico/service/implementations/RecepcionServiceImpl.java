@@ -52,7 +52,7 @@ public class RecepcionServiceImpl implements RecepcionService {
 
         if (vehiculoExistente != null) {
             if (clienteExistente != null) {
-                clienteExistente.setVehiculos(List.of(vehiculoExistente));
+                clienteExistente.getVehiculos().add(vehiculoExistente);
                 return;
             }
             cliente.setVehiculos(List.of(vehiculoExistente));
@@ -61,7 +61,7 @@ public class RecepcionServiceImpl implements RecepcionService {
         }
 
         if (clienteExistente != null) {
-            clienteExistente.setVehiculos(List.of(vehiculo));
+            clienteExistente.getVehiculos().add(vehiculo);
             return;
         }
 

@@ -1,6 +1,5 @@
 package com.besysoft.taller_mecanico.service.implementations;
 
-import com.besysoft.taller_mecanico.business.mapper.interfaces.VehiculoMapper;
 import com.besysoft.taller_mecanico.domain.entity.Vehiculo;
 import com.besysoft.taller_mecanico.repository.VehiculoRepository;
 import com.besysoft.taller_mecanico.service.interfaces.VehiculoService;
@@ -14,11 +13,8 @@ public class VehiculoServiceImpl implements VehiculoService {
 
     private final VehiculoRepository vehiculoRepository;
 
-    private final VehiculoMapper vehiculoMapper;
-
-    public VehiculoServiceImpl(VehiculoRepository vehiculoRepository, VehiculoMapper vehiculoMapper) {
+    public VehiculoServiceImpl(VehiculoRepository vehiculoRepository) {
         this.vehiculoRepository = vehiculoRepository;
-        this.vehiculoMapper = vehiculoMapper;
     }
 
     @Override

@@ -37,7 +37,7 @@ public class MecanicaController {
     @GetMapping("/{mecanicoId}/asignaciones")
     @ApiOperation(value = "3.Ver asignaciones",
             tags = "Flujo de trabajo",
-            notes = "Muestra aquellas Manos de Obra que fueron previamente asignadas por recepcion y esperan por reparacion")
+            notes = "Muestra aquellas Manos de Obra que fueron previamente asignadas por recepcion segun mecánico y esperan por reparacion")
     public ResponseEntity<?> listarManosDeObraAsignadas(@PathVariable Long mecanicoId) {
 
         List<ManoObraDto> manoObraDtoList = this.mecanicaService.listarManosDeObraAsignadas(mecanicoId)
@@ -49,9 +49,10 @@ public class MecanicaController {
     }
 
     @PutMapping("/{manoObraId}/iniciar")
-    @ApiOperation(value = "4.Inicia Reparacion",
+    @ApiOperation(value = "4.Inicia Reparación",
             tags = "Flujo de trabajo",
-            notes = "Inicia reparacion del vehículo, cambia de estado la orden de CREADA a EN_REPARACION")
+            notes = "Elección de mano de obra para inicio de reparación del vehículo " +
+                    "(se cambia de estado la orden de CREADA a EN_REPARACION)")
     public ResponseEntity<?> iniciarReparacion(@PathVariable Long manoObraId) {
 
         Map<String, Object> response = new HashMap<>();
@@ -64,8 +65,26 @@ public class MecanicaController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @PutMapping("/{manoObraId}/finalizar")
+    @ApiOperation(value = "5.Finalizar reparación",
+            tags = "Flujo de trabajo",
+            notes = "A través del ID de la mano de obra, se completa detalle, " +
+                    "duración de la reparación y, automáticamente, la hora de finalización")
+    public ResponseEntity<?> finalizarReparacion(@PathVariable Long manoObraId,
+                                                 @Valid @RequestBody ManoObraDto manoObraDto) {
+
+        Map<String, Object> response = new HashMap<>();
+
+        this.mecanicaService.finalizarReparacion(manoObraId, manoObraDto.getDetalle(), manoObraDto.getDuracionHs());
+
+        response.put("success", Boolean.TRUE);
+        response.put("mensaje", "Mano de obra completada con éxito");
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
     @PostMapping("/{manoObraId}/cargar-repuesto")
-    @ApiOperation(value = "5.Cargar repuestos ",
+    @ApiOperation(value = "6.Cargar repuestos ",
             tags = "Flujo de trabajo",
             notes = "Carga repuestos utilizados y valor de los mismos")
     public ResponseEntity<?> cargarRepuestos(@PathVariable Long manoObraId,
@@ -81,23 +100,6 @@ public class MecanicaController {
         response.put("mensaje", "Repuesto cargado con éxito");
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/{manoObraId}/finalizar")
-    @ApiOperation(value = "6.Finalizar",
-            tags = "Flujo de trabajo",
-            notes = "Completa detalles, hora de finalizacion y duracion de la reparacion")
-    public ResponseEntity<?> finalizarReparacion(@PathVariable Long manoObraId,
-                                                 @Valid @RequestBody ManoObraDto manoObraDto) {
-
-        Map<String, Object> response = new HashMap<>();
-
-        this.mecanicaService.finalizarReparacion(manoObraId, manoObraDto.getDetalle(), manoObraDto.getDuracionHs());
-
-        response.put("success", Boolean.TRUE);
-        response.put("mensaje", "Mano de obra completada con éxito");
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping("/{manoObraId}/para-facturar")

@@ -37,7 +37,8 @@ public class AdministracionController {
     @PutMapping("/{empleadoId}/facturar")
     @ApiOperation(value = "8.Facturar",
             tags = "Flujo de trabajo",
-            notes = "Se cambia estado de orden a facturada, se registra el empleado administrativo, pago y forma de pago")
+            notes = "A través del ID de la orden (por el json body), se le cambia estado a FACTURADA, " +
+                    "además, se registra el empleado administrativo, el pago y forma de pago")
     public ResponseEntity<?> facturar(@PathVariable Long empleadoId,
                                       @Valid @RequestBody FormaPagoDto formaPagoDto) throws InvalidRolException {
 
