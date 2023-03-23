@@ -12,7 +12,7 @@
 	<artifactId>taller-mecanico</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>taller-mecanico</name>
-	<description>ApiREST de caso practico: taller mecánico </description>
+	<description>ApiREST de caso práctico: taller mecánico </description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
