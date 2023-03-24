@@ -22,7 +22,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/recepcion")
-@Api(value = "Recepcion Controller", tags = "Acciones permitidas para Área Recepción")
+@Api(value = "Recepción Controller", tags = "Acciones permitidas para Área Recepción")
 public class RecepcionController {
 
     private final RecepcionService recepcionService;
@@ -39,7 +39,7 @@ public class RecepcionController {
     @PostMapping("/{empleadoId}/recibir")
     @ApiOperation(value = "1.Recibir",
             tags = "Flujo de trabajo",
-            notes = "Recibe cliente y vehiculo, los persiste o los vincula segun correponda al caso")
+            notes = "Recibe cliente y vehículo, los persiste o los vincula según corresponda al caso")
     public ResponseEntity<?> recibir(@PathVariable Long empleadoId,
                                      @Valid @RequestBody ClienteDto clienteDto) throws InvalidRolException {
 
@@ -59,7 +59,7 @@ public class RecepcionController {
     @ApiOperation(value = "2.Generar orden",
             tags = "Flujo de trabajo",
             notes = "Registra datos del vehículo (combustible, kilometraje, detalle) " +
-                    "y genera orden de trabajo asignandole fecha y estado CREADA (automaticamente)," +
+                    "y genera orden de trabajo asignándole fecha y estado CREADA (automáticamente)," +
                     " ademas de asignar mecánico")
     public ResponseEntity<?> generarOrden(@PathVariable Long empleadoId,
                                           @Valid @RequestBody OrdenTrabajoDto ordenTrabajoDto) throws InvalidRolException {

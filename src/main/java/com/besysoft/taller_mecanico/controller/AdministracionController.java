@@ -23,7 +23,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/administracion")
-@Api(value = "Administracion Controller", tags = "Acciones permitidas para Área Administración")
+@Api(value = "Administración Controller", tags = "Acciones permitidas para Área Administración")
 public class AdministracionController {
 
     private final AdministracionService administracionService;
@@ -48,7 +48,7 @@ public class AdministracionController {
         this.administracionService.facturar(empleadoId, ordenTrabajo);
 
         response.put("success", Boolean.TRUE);
-        response.put("mensaje", "Facturacion exitosa");
+        response.put("mensaje", "Facturación exitosa");
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

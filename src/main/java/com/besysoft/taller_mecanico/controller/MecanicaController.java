@@ -21,7 +21,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/mecanica")
-@Api(value = "Mecanica Controller", tags = "Acciones permitidas para Área de Mecánica")
+@Api(value = "Mecánica Controller", tags = "Acciones permitidas para Área de Mecánica")
 public class MecanicaController {
 
     private final MecanicaService mecanicaService;
@@ -37,7 +37,7 @@ public class MecanicaController {
     @GetMapping("/{mecanicoId}/asignaciones")
     @ApiOperation(value = "3.Ver asignaciones",
             tags = "Flujo de trabajo",
-            notes = "Muestra aquellas Manos de Obra que fueron previamente asignadas por recepcion segun mecánico y esperan por reparacion")
+            notes = "Muestra aquellas Manos de Obra que fueron previamente asignadas por recepción según mecánico y esperan por reparación")
     public ResponseEntity<?> listarManosDeObraAsignadas(@PathVariable Long mecanicoId) {
 
         List<ManoObraDto> manoObraDtoList = this.mecanicaService.listarManosDeObraAsignadas(mecanicoId)
@@ -52,7 +52,7 @@ public class MecanicaController {
     @ApiOperation(value = "4.Inicia Reparación",
             tags = "Flujo de trabajo",
             notes = "Elección de mano de obra para inicio de reparación del vehículo " +
-                    "(se cambia de estado la orden de CREADA a EN_REPARACION)")
+                    "(se cambia de estado la orden, de CREADA a EN_REPARACION)")
     public ResponseEntity<?> iniciarReparacion(@PathVariable Long manoObraId) {
 
         Map<String, Object> response = new HashMap<>();
@@ -105,7 +105,7 @@ public class MecanicaController {
     @PutMapping("/{manoObraId}/para-facturar")
     @ApiOperation(value = "7.Lista para facturar",
             tags = "Flujo de trabajo",
-            notes = "EL mecanico da el visto bueno para que la orden pase a facturacion, cambia el estado a PARA_FACTURAR")
+            notes = "EL mecánico da el visto bueno para que la orden pase a facturación, cambia el estado a PARA_FACTURAR")
     public ResponseEntity<?> ordenParaFacturar(@PathVariable Long manoObraId) {
 
         Map<String, Object> response = new HashMap<>();

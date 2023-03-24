@@ -28,7 +28,7 @@ public class VehiculoController {
     }
 
     @GetMapping
-    @ApiOperation(value = "Listar Vehiculos")
+    @ApiOperation(value = "Listar Vehículos")
     public ResponseEntity<List<VehiculoDto>> findAll() {
         List<VehiculoDto> vehiculoDtoList = this.vehiculoService.findAll()
                 .stream()
