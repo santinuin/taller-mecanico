@@ -18,7 +18,6 @@ public class ManoObra {
     private String detalle;
 
     @Column(name = "duracion_hs")
-    @Temporal(TemporalType.TIME)
     private Duration duracionHs;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
